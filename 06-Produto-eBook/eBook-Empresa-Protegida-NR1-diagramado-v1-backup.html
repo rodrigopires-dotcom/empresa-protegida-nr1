@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empresa Protegida — NR-1 sem complicação | Guilherme Avelar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1B2E;
+    --navy-2:#102640;
+    --charcoal:#0E0E0E;
+    --gold:#C9A24B;
+    --gold-soft:#E0C078;
+    --orange:#E2542C;
+    --cream:#F5F1E6;
+    --blue:#1E5AA8;
+    --ink:#1c2430;
+    --paper:#FBF9F4;
+    --muted:#6b7280;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:#3a4453;
+    color:var(--ink);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    width:210mm;
+    min-height:297mm;
+    margin:24px auto;
+    background:var(--paper);
+    box-shadow:0 14px 40px rgba(0,0,0,.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .pad{padding:28mm 24mm;}
+
+  /* ---------- COVER ---------- */
+  .cover{
+    background:
+      radial-gradient(120% 80% at 50% -10%, var(--navy-2) 0%, var(--navy) 55%, #08131f 100%);
+    color:var(--cream);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:18mm;
+  }
+  .cover-frame{
+    border:1.5px solid rgba(201,162,75,.55);
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    padding:16mm 14mm;
+    position:relative;
+  }
+  .cover-frame::before{
+    content:"";position:absolute;inset:6px;border:1px solid rgba(201,162,75,.18);pointer-events:none;
+  }
+  .badge-top{
+    letter-spacing:.32em;
+    font-size:11px;
+    font-weight:600;
+    color:var(--gold);
+    text-transform:uppercase;
+  }
+  .badge-top .dot{color:var(--orange);}
+  .cover-center{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .kicker{
+    color:var(--orange);
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:13px;
+    margin-bottom:14px;
+  }
+  .cover h1{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:62px;
+    line-height:1.02;
+    margin:0;
+    color:#fff;
+    letter-spacing:.5px;
+  }
+  .cover h1 .gold{color:var(--gold);}
+  .cover .sub{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:26px;
+    color:var(--gold-soft);
+    margin-top:10px;
+  }
+  .rule{height:2px;width:70px;background:var(--orange);margin:26px 0;border:0;}
+  .cover .desc{
+    font-size:15.5px;
+    font-weight:300;
+    color:#d9e0ea;
+    max-width:430px;
+  }
+  .cover-foot{display:flex;align-items:flex-end;justify-content:space-between;}
+  .author{font-size:13px;color:#aeb9c7;}
+  .author .name{
+    font-family:'Playfair Display',serif;
+    font-size:24px;
+    color:#fff;
+    display:block;
+    margin-bottom:2px;
+  }
+  .author .role{color:var(--gold);font-size:12px;letter-spacing:.04em;}
+  .seal{
+    text-align:center;
+    border:1px solid rgba(201,162,75,.5);
+    border-radius:50%;
+    width:92px;height:92px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:.12em;
+    line-height:1.4;
+    text-transform:uppercase;
+  }
+  .seal b{font-size:15px;color:#fff;letter-spacing:.05em;}
+
+  /* ---------- CONTENT ---------- */
+  .eyebrow{
+    color:var(--orange);
+    font-weight:700;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  h2.chap{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    color:var(--navy);
+    line-height:1.15;
+    margin:6px 0 4px;
+  }
+  .chap-num{
+    font-family:'Playfair Display',serif;
+    font-size:13px;
+    color:var(--gold);
+    font-weight:700;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+  }
+  .chap-head{
+    border-bottom:2px solid rgba(11,27,46,.10);
+    padding-bottom:14px;
+    margin-bottom:22px;
+  }
+  h3{font-size:18px;color:var(--navy);margin:26px 0 8px;}
+  p{margin:0 0 14px;font-size:15px;}
+  strong{color:var(--navy);font-weight:600;}
+  a{color:var(--blue);}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:8px;font-size:15px;}
+
+  .callout{
+    border-radius:10px;
+    padding:16px 18px 16px 20px;
+    margin:20px 0;
+    font-size:14.5px;
+    position:relative;
+    border-left:4px solid var(--gold);
+    background:#f4eedd;
+  }
+  .callout.warn{border-left-color:var(--orange);background:#fbe9e2;}
+  .callout.tip{border-left-color:var(--blue);background:#e8f0fa;}
+  .callout .lbl{font-weight:700;color:var(--navy);}
+
+  .checklist{list-style:none;padding-left:0;}
+  .checklist li{
+    position:relative;padding-left:34px;margin-bottom:12px;
+  }
+  .checklist li::before{
+    content:"";position:absolute;left:0;top:2px;width:18px;height:18px;
+    border:2px solid var(--gold);border-radius:4px;background:#fff;
+  }
+  .checklist li::after{
+    content:"";position:absolute;left:6px;top:4px;width:5px;height:10px;
+    border:solid var(--orange);border-width:0 2.5px 2.5px 0;transform:rotate(45deg);
+    opacity:.0;
+  }
+
+  .timeline{margin:18px 0;padding:0;list-style:none;}
+  .timeline li{
+    position:relative;padding-left:26px;margin-bottom:12px;
+  }
+  .timeline li::before{
+    content:"";position:absolute;left:0;top:7px;width:10px;height:10px;border-radius:50%;
+    background:var(--orange);box-shadow:0 0 0 3px rgba(226,84,44,.18);
+  }
+
+  .errors{counter-reset:err;list-style:none;padding-left:0;}
+  .errors li{
+    position:relative;padding-left:46px;margin-bottom:14px;min-height:30px;
+  }
+  .errors li::before{
+    counter-increment:err;content:counter(err);
+    position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;
+    background:var(--navy);color:var(--gold);font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:14px;
+  }
+
+  .letter{font-size:16px;}
+  .signoff{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-top:18px;}
+
+  .cta-box{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);
+    color:var(--cream);border-radius:14px;padding:26px 28px;margin:24px 0;
+  }
+  .cta-box h3{color:#fff;margin-top:0;}
+  .cta-box .btn{
+    display:inline-block;background:var(--orange);color:#fff;font-weight:700;
+    padding:12px 22px;border-radius:8px;text-decoration:none;margin-top:8px;font-size:14px;
+  }
+  .cta-box .ph{color:var(--gold-soft);}
+
+  .author-card{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid #e7e2d4;border-radius:12px;padding:22px;}
+  .author-card .ini{
+    flex:0 0 64px;height:64px;border-radius:50%;background:var(--navy);color:var(--gold);
+    font-family:'Playfair Display',serif;font-size:24px;display:flex;align-items:center;justify-content:center;
+  }
+  .legal{font-size:12px;color:var(--muted);border-top:1px solid #e3ddcd;padding-top:16px;margin-top:30px;line-height:1.6;}
+  .pg-num{position:absolute;bottom:14mm;right:24mm;font-size:11px;color:var(--muted);letter-spacing:.1em;}
+  .brandfoot{position:absolute;bottom:14mm;left:24mm;font-size:11px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase;}
+
+  @media print{
+    body{background:#fff;}
+    .page{margin:0;box-shadow:none;width:auto;min-height:auto;page-break-after:always;}
+    @page{size:A4;margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<section class="page cover">
+  <div class="cover-frame">
+    <div class="badge-top">Guilherme Avelar <span class="dot">•</span> Inteligência em Gestão</div>
+    <div class="cover-center">
+      <div class="kicker">Guia Prático para Donos de Empresa</div>
+      <h1>EMPRESA<br><span class="gold">PROTEGIDA</span></h1>
+      <div class="sub">NR-1 sem complicação</div>
+      <hr class="rule">
+      <p class="desc">Entenda os novos riscos psicossociais e proteja seu negócio das multas — sem precisar virar especialista em segurança do trabalho.</p>
+    </div>
+    <div class="cover-foot">
+      <div class="author">
+        <span class="name">Guilherme Avelar</span>
+        <span class="role">Tributário · RH · Master Coach &amp; PNL</span>
+      </div>
+      <div class="seal">Conforme<br><b>NR-1</b>Riscos Psicossociais</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO LETTER ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Abertura</div>
+      <h2 class="chap">Uma conversa franca, de empresário para empresário</h2>
+    </div>
+    <div class="letter">
+      <p>Se você tem funcionários registrados, este eBook foi escrito para você.</p>
+      <p>Não importa se sua empresa tem 5 ou 200 pessoas. Desde <strong>26 de maio de 2026</strong>, toda empresa com empregado CLT no Brasil é obrigada a <strong>identificar e gerenciar os riscos psicossociais</strong> do trabalho — e a fiscalização já não é mais só "orientativa". Agora ela vale multa de verdade.</p>
+      <p>Eu sei o que você está pensando: <em>"mais uma obrigação, mais um custo, mais uma burocracia que eu não entendo."</em></p>
+      <p>Respira. A boa notícia é que isso é mais simples do que parece — quando alguém te explica em português, sem juridiquês e sem aquele papo técnico de segurança do trabalho que ninguém entende.</p>
+      <p>Eu passei os últimos anos transformando empresas no cruzamento de três coisas: <strong>gestão, tributos e comportamento humano</strong>. E é exatamente aí que os riscos psicossociais moram. Por isso resolvi escrever este guia direto: para você entender, em menos de uma hora, <strong>o que mudou, o que a lei exige de você e como começar a se proteger hoje.</strong></p>
+      <p>Vamos nessa.</p>
+      <div class="signoff">— Guilherme Avelar</div>
+    </div>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+</section>
+
+<!-- ===================== CAP 1 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 1</div>
+      <h2 class="chap">O que mudou na NR-1 (e por que isso é com você)</h2>
+    </div>
+    <p>A <strong>NR-1</strong> (Norma Regulamentadora nº 1) é a norma que organiza como as empresas devem gerenciar os riscos do ambiente de trabalho. Ela já existia — mas acabou de ganhar um capítulo novo que muda o jogo.</p>
+    <p><strong>O que mudou, em uma frase:</strong> agora, além dos riscos físicos (máquinas, ruído, produtos químicos), a sua empresa também precisa olhar para os <strong>riscos psicossociais</strong> — os fatores do trabalho que adoecem a mente das pessoas.</p>
+    <h3>A linha do tempo, sem complicação</h3>
+    <ul class="timeline">
+      <li><strong>2024</strong> — a Portaria MTE 1.419/2024 atualiza a NR-1 e inclui oficialmente os riscos psicossociais.</li>
+      <li><strong>Maio/2025 a Maio/2026</strong> — período "educativo": o governo orienta, mas ainda não multa.</li>
+      <li><strong>26 de maio de 2026</strong> — acaba o prazo. A fiscalização passa a ser punitiva: multa, auto de infração e, em casos graves, interdição.</li>
+    </ul>
+    <div class="callout warn">
+      <span class="lbl">📌 Tradução prática:</span> o tempo de "depois eu vejo isso" acabou. Já estamos no período em que a sua empresa pode ser autuada se não tiver se adequado.
+    </div>
+    <p>E não adianta achar que "isso é coisa de empresa grande". A norma <strong>não abre exceção por tamanho</strong>. Padaria, clínica, loja, transportadora, indústria — se tem gente com carteira assinada, vale.</p>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">01</div>
+</section>
+
+<!-- ===================== CAP 2 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 2</div>
+      <h2 class="chap">O que são "riscos psicossociais" (em português)</h2>
+    </div>
+    <p>"Risco psicossocial" parece nome de coisa complicada. Não é. É simplesmente <strong>tudo aquilo no trabalho que pode prejudicar a saúde mental e emocional das pessoas</strong> — e que, por tabela, prejudica a sua empresa.</p>
+    <h3>Exemplos do dia a dia de qualquer empresa</h3>
+    <ul>
+      <li><strong>Sobrecarga de trabalho</strong> — gente fazendo o trabalho de três.</li>
+      <li><strong>Metas inalcançáveis</strong> ou pressão excessiva por resultado.</li>
+      <li><strong>Assédio moral ou sexual</strong> — do chefe, de colegas, de clientes.</li>
+      <li><strong>Jornadas exaustivas</strong>, falta de pausa, "sempre disponível".</li>
+      <li><strong>Falta de clareza</strong> sobre o que se espera da pessoa.</li>
+      <li><strong>Conflitos não resolvidos</strong>, ambiente tóxico, medo constante.</li>
+      <li><strong>Insegurança</strong> sobre o emprego, mudanças sem comunicação.</li>
+    </ul>
+    <p>Por que isso virou caso de lei? Porque esses fatores são hoje uma das <strong>maiores causas de afastamento, queda de produtividade, rotatividade e processos trabalhistas</strong> no Brasil. Um ambiente adoecido custa caro — em gente, em dinheiro e, agora, em multa.</p>
+    <div class="callout tip">
+      <span class="lbl">💡 O ponto-chave:</span> você não precisa virar psicólogo. Precisa <strong>identificar</strong> esses fatores na sua empresa e <strong>ter um plano</strong> para reduzi-los. É disso que a lei trata.
+    </div>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">02</div>
+</section>
+
+<!-- ===================== CAP 3 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 3</div>
+      <h2 class="chap">O que a lei realmente exige de você</h2>
+    </div>
+    <p>Aqui está o coração da coisa, sem enrolação. A NR-1 trabalha com dois "guarda-chuvas":</p>
+    <ul>
+      <li><strong>GRO — Gerenciamento de Riscos Ocupacionais:</strong> o conceito geral de cuidar dos riscos.</li>
+      <li><strong>PGR — Programa de Gerenciamento de Riscos:</strong> o <strong>documento</strong> onde tudo isso é registrado.</li>
+    </ul>
+    <p>A novidade é que o <strong>PGR da sua empresa agora precisa incluir os riscos psicossociais</strong>. Na prática, a adequação tem este caminho:</p>
+    <ol>
+      <li><strong>Identificar</strong> os riscos psicossociais que existem na sua operação.</li>
+      <li><strong>Avaliar</strong> o quanto cada um é grave/provável.</li>
+      <li><strong>Definir um plano de ação</strong> para prevenir ou reduzir esses riscos.</li>
+      <li><strong>Registrar tudo no PGR</strong> (a comprovação documental é o que a fiscalização cobra).</li>
+      <li><strong>Acompanhar e revisar</strong> periodicamente.</li>
+    </ol>
+    <div class="callout">
+      <span class="lbl">📌 O que a fiscalização olha primeiro:</span> se existe a <strong>comprovação formal</strong> de que os riscos psicossociais foram incluídos e tratados no PGR. Empresa sem isso documentado é a que toma multa.
+    </div>
+    <p>Não é sobre ter "zero problema" — nenhuma empresa tem. É sobre <strong>mostrar que você identificou e está cuidando.</strong></p>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">03</div>
+</section>
+
+<!-- ===================== CAP 4 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 4</div>
+      <h2 class="chap">O preço de não fazer nada</h2>
+    </div>
+    <p>Vamos falar a língua que todo empresário entende: dinheiro e risco.</p>
+    <p><strong>Multas.</strong> O descumprimento é punido com base na <strong>NR-28</strong>, que calcula o valor conforme o <strong>número de empregados</strong> e a <strong>gravidade da infração</strong>. Quanto maior a empresa e mais séria a falha, mais alta a multa — e pode haver mais de uma autuação.</p>
+    <p><strong>Interdição e embargo.</strong> Nos casos mais graves, a fiscalização pode <strong>interditar setores</strong> ou embargar atividades até a regularização. Imagine sua operação parada.</p>
+    <p><strong>O Ministério Público do Trabalho (MPT).</strong> Atenção: o MPT <strong>não segue o mesmo calendário</strong> da fiscalização comum. Ele já vinha cobrando esses temas e pode mover ação civil pública, com pedido de indenização por dano moral coletivo.</p>
+    <p><strong>O passivo trabalhista.</strong> Um ambiente adoecido vira <strong>processo</strong>. Afastamento por burnout, ações de assédio, pedidos de indenização — tudo isso fica muito mais fácil de provar contra a empresa que <strong>não tinha nada documentado</strong> sobre prevenção.</p>
+    <div class="callout warn">
+      <span class="lbl">⚠️ Some tudo:</span> multa + risco de interdição + MPT + processos. Adequar-se custa <strong>uma fração</strong> disso. Não é gasto — é <strong>proteção</strong>.
+    </div>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">04</div>
+</section>
+
+<!-- ===================== CAP 5 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 5</div>
+      <h2 class="chap">Por onde começar HOJE</h2>
+    </div>
+    <p>Você não precisa resolver tudo numa tarde. Mas precisa <strong>começar</strong>. Use este checklist para tirar a sua empresa da zona de risco:</p>
+    <ul class="checklist">
+      <li><strong>Verifique se a sua empresa já tem um PGR.</strong> Se não tem, esse é o primeiro buraco a tapar.</li>
+      <li><strong>Confira se o PGR menciona riscos psicossociais.</strong> A maioria dos PGRs antigos não menciona.</li>
+      <li><strong>Faça um diagnóstico simples</strong> dos fatores psicossociais na sua operação (use a lista do Capítulo 2).</li>
+      <li><strong>Ouça as pessoas.</strong> Uma conversa estruturada ou um questionário anônimo já revela muita coisa.</li>
+      <li><strong>Monte um plano de ação</strong> — mesmo que simples — para os pontos mais críticos.</li>
+      <li><strong>Documente tudo</strong> e anexe ao PGR. Comprovação é o que protege.</li>
+      <li><strong>Defina um responsável</strong> e uma data para revisar.</li>
+      <li><strong>Busque apoio técnico</strong> de quem entende, para a parte formal não ter falha.</li>
+    </ul>
+    <div class="callout tip">
+      <span class="lbl">💡 Dica:</span> comece pelos dois primeiros itens ainda esta semana. Eles já tiram você da pior situação: a de quem <strong>não tem nada</strong>.
+    </div>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">05</div>
+</section>
+
+<!-- ===================== CAP 6 ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 6</div>
+      <h2 class="chap">Os 5 erros que mais geram autuação</h2>
+    </div>
+    <ol class="errors">
+      <li><strong>Achar que "não se aplica" à sua empresa.</strong> Aplica. Tem CLT, tem obrigação.</li>
+      <li><strong>Ter um PGR genérico, comprado de prateleira</strong>, que não reflete a sua operação nem cita riscos psicossociais.</li>
+      <li><strong>Tratar só o físico</strong> (EPI, ruído) e esquecer completamente o lado humano e comportamental.</li>
+      <li><strong>Não documentar.</strong> Você até cuida do clima, mas não tem nada no papel para provar. Para a fiscalização, o que não está documentado não existe.</li>
+      <li><strong>Deixar para a última hora.</strong> O prazo já venceu em 26/05/2026. Cada dia sem adequação é um dia de exposição.</li>
+    </ol>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">06</div>
+</section>
+
+<!-- ===================== CAP 7 + AUTOR ===================== -->
+<section class="page">
+  <div class="pad">
+    <div class="chap-head">
+      <div class="chap-num">Capítulo 7</div>
+      <h2 class="chap">O próximo passo: do entendimento à proteção</h2>
+    </div>
+    <p>Se você chegou até aqui, já está à frente da maioria dos empresários — que ainda nem sabe que isso virou obrigação.</p>
+    <p>Mas <strong>entender</strong> é só metade do caminho. A outra metade é <strong>fazer</strong>: montar (ou atualizar) o PGR com os riscos psicossociais, do jeito certo, com a documentação que protege a sua empresa de verdade.</p>
+    <div class="cta-box">
+      <h3>Treinamento Empresa Protegida</h3>
+      <p>O passo a passo completo, com <strong style="color:#fff">modelos prontos, checklists e exemplos</strong>, para deixar sua empresa adequada à NR-1 sem adivinhação — e sem pagar uma fortuna por consultoria que você nem entende o que está pagando.</p>
+      <a class="btn" href="#">Quero o treinamento →</a>
+      <p style="margin-top:16px;margin-bottom:0;">Prefere que façam <strong style="color:#fff">junto com você</strong>? Chame no WhatsApp: <span class="ph">[inserir número]</span></p>
+    </div>
+    <p>Proteger sua empresa não precisa ser complicado. Precisa começar.</p>
+    <div class="signoff">— Guilherme Avelar</div>
+
+    <h3 style="margin-top:34px;">Sobre o autor</h3>
+    <div class="author-card">
+      <div class="ini">GA</div>
+      <div>
+        <p style="margin:0 0 8px;"><strong>Guilherme Avelar</strong> é empreendedor e ajuda empresas a crescerem com estratégias inteligentes de <strong>gestão, tributos e comportamento</strong>. Une três frentes que poucos dominam juntas: <strong>Inteligência Tributária</strong>, <strong>Recursos Humanos</strong> e <strong>Master Coach &amp; PNL</strong> — a combinação exata para tratar os riscos psicossociais não como mais um papel burocrático, mas como gestão de pessoas que protege o negócio.</p>
+        <p style="margin:0;font-size:13px;color:var(--muted);">📲 Instagram: @guiavelaroficial</p>
+      </div>
+    </div>
+
+    <div class="legal">
+      <strong>Aviso importante.</strong> Este material tem caráter educativo e informativo e não substitui a orientação de um profissional habilitado em Segurança e Saúde do Trabalho, nem a elaboração técnica do PGR por responsável legal. As regras e prazos citados refletem a legislação vigente na data de produção (junho/2026, com base na NR-1 atualizada pela Portaria MTE 1.419/2024 e no prazo fixado pela Portaria MTE 765/2025) e podem sofrer alterações. Consulte sempre um especialista para o caso concreto da sua empresa.
+    </div>
+  </div>
+  <div class="brandfoot">Empresa Protegida</div>
+  <div class="pg-num">07</div>
+</section>
+
+</body>
+</html>

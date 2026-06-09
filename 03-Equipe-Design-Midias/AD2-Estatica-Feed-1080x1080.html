@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html, body{ width:1080px; height:1080px; overflow:hidden; background:#111111; }
+
+  .ad{
+    width:1080px; height:1080px;
+    background:#111111;
+    position:relative;
+    overflow:hidden;
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* === FOTO — painel direito altura total === */
+  .photo-panel{
+    position:absolute;
+    right:0; top:0;
+    width:46%;
+    height:100%;
+    overflow:hidden;
+  }
+  .photo-panel img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center top;
+    display:block;
+  }
+  /* Fade gradiente: integra foto com fundo */
+  .photo-fade{
+    position:absolute;
+    top:0; left:0;
+    width:75%; height:100%;
+    background:linear-gradient(to right,#111111 15%,rgba(17,17,17,.80) 55%,transparent 100%);
+  }
+  .photo-fade-bottom{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:25%;
+    background:linear-gradient(to top,rgba(17,17,17,.85) 0%,transparent 100%);
+  }
+
+  /* === CONTEÚDO — coluna esquerda === */
+  .content{
+    position:relative;
+    z-index:2;
+    width:60%;
+    height:100%;
+    padding:56px 0 48px 72px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  /* === BADGE === */
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+  }
+  .badge-text{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:#C41010;
+  }
+
+  /* === BLOCO CENTRAL === */
+  .center-block{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  .kicker{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:#C41010;
+    margin-bottom:18px;
+  }
+  .headline{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:58px;
+    line-height:1.08;
+    color:#FFFFFF;
+    letter-spacing:-0.5px;
+    margin-bottom:22px;
+    max-width:560px;
+  }
+  .divider{
+    width:52px; height:3px;
+    background:#C41010;
+    margin-bottom:22px;
+  }
+  .subtitle{
+    font-size:22px;
+    font-weight:300;
+    color:rgba(255,255,255,0.65);
+    line-height:1.55;
+    max-width:500px;
+    margin-bottom:32px;
+  }
+
+  /* === PILL PREÇO === */
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:18px;
+    background:rgba(196,16,16,0.14);
+    border:1px solid rgba(196,16,16,0.35);
+    border-radius:50px;
+    padding:14px 28px;
+    width:fit-content;
+  }
+  .pill-price{
+    font-size:30px;
+    font-weight:800;
+    color:#C41010;
+    line-height:1;
+  }
+  .pill-divider{
+    width:1px; height:30px;
+    background:rgba(196,16,16,0.3);
+  }
+  .pill-info{ display:flex; flex-direction:column; gap:2px; }
+  .pill-label{
+    font-size:11px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:rgba(255,255,255,0.5);
+  }
+  .pill-guarantee{
+    font-size:12px;
+    color:rgba(255,255,255,0.32);
+  }
+
+  /* === AUTOR === */
+  .author{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .author-photo{
+    width:72px; height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    object-position:center top;
+    border:2px solid rgba(255,255,255,0.2);
+    flex-shrink:0;
+  }
+  .author-name{
+    display:block;
+    font-size:17px;
+    font-weight:600;
+    color:#FFFFFF;
+    margin-bottom:3px;
+  }
+  .author-handle{
+    font-size:12px;
+    color:rgba(255,255,255,0.35);
+  }
+
+  /* === BARRAS === */
+  .bar-top{
+    position:absolute;
+    top:0; left:0; right:0;
+    height:5px;
+    background:#C41010;
+    z-index:10;
+  }
+  .bar-bottom{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    height:5px;
+    background:#C41010;
+    z-index:10;
+  }
+
+  /* === ESCUDO WATERMARK === */
+  .shield-wm{
+    position:absolute;
+    bottom:40px; right:30px;
+    z-index:3;
+    opacity:0.07;
+    pointer-events:none;
+  }
+</style>
+</head>
+<body>
+<div class="ad">
+
+  <div class="bar-top"></div>
+
+  <!-- Foto Guilherme — painel direito -->
+  <div class="photo-panel">
+    <img src="../05-Assets-Compartilhados/guilherme-avelar-foto-oficial.jpg" alt="Guilherme Avelar">
+    <div class="photo-fade"></div>
+    <div class="photo-fade-bottom"></div>
+  </div>
+
+  <!-- Escudo watermark -->
+  <div class="shield-wm">
+    <svg width="120" height="144" viewBox="0 0 60 72" fill="none">
+      <path d="M30 2L4 13V33C4 52 15 65 30 70C45 65 56 52 56 33V13L30 2Z" fill="#C9A96E"/>
+    </svg>
+  </div>
+
+  <!-- Conteúdo esquerdo -->
+  <div class="content">
+
+    <!-- Badge topo -->
+    <div class="badge">
+      <svg width="12" height="14" viewBox="0 0 12 14" fill="none">
+        <path d="M6 1L1 3V6.5C1 10 3.2 13 6 13.8C8.8 13 11 10 11 6.5V3L6 1Z"
+              fill="none" stroke="#C41010" stroke-width="1.1"/>
+      </svg>
+      <span class="badge-text">Empresa Protegida™</span>
+    </div>
+
+    <!-- Bloco central -->
+    <div class="center-block">
+      <div class="kicker">NR-1 · Riscos Psicossociais</div>
+      <h1 class="headline">Sua empresa está protegida contra a nova NR-1?</h1>
+      <div class="divider"></div>
+      <p class="subtitle">Entenda o que a lei exige e comece a se adequar — sem juridiquês e sem consultor.</p>
+      <div class="pill">
+        <span class="pill-price">R$ 27</span>
+        <div class="pill-divider"></div>
+        <div class="pill-info">
+          <span class="pill-label">Acesso imediato</span>
+          <span class="pill-guarantee">Garantia incondicional · 7 dias</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Autor -->
+    <div class="author">
+      <img src="../05-Assets-Compartilhados/guilherme-avelar-foto-oficial.jpg"
+           class="author-photo" alt="Guilherme Avelar">
+      <div>
+        <span class="author-name">Guilherme Avelar</span>
+        <span class="author-handle">@guiavelaroficial ✓</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bar-bottom"></div>
+</div>
+</body>
+</html>

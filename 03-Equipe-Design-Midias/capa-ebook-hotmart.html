@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+    background: #111111;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cover {
+    width: 800px;
+    height: 800px;
+    background: #111111;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Fundo texturizado sutil */
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, #2a0808 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, #1a0000 0%, transparent 50%);
+  }
+
+  /* Barra vermelha topo */
+  .top-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: #C41010;
+  }
+
+  /* Badge urgência */
+  .badge-urgencia {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    background: #C41010;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 2px;
+  }
+
+  /* Selo autor topo esquerdo */
+  .autor-top {
+    position: absolute;
+    top: 22px;
+    left: 28px;
+    color: #888;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Escudo / ícone central */
+  .shield-wrap {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 28px;
+  }
+
+  .shield-svg {
+    filter: drop-shadow(0 0 40px rgba(196,16,16,0.4));
+  }
+
+  /* Bloco de texto */
+  .text-block {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 60px;
+  }
+
+  .marca {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #C41010;
+    margin-bottom: 12px;
+  }
+
+  .titulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 54px;
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    letter-spacing: -1px;
+  }
+
+  .titulo span {
+    color: #C41010;
+  }
+
+  .subtitulo {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #AAAAAA;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto 28px;
+  }
+
+  /* Divider */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: #C41010;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Autor rodapé */
+  .autor-footer {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: #C41010;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+  }
+
+  .autor-footer .nome {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .autor-footer .cargo {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
+  }
+
+  .autor-footer .nr1-badge {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1.5px solid rgba(255,255,255,0.5);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="top-bar"></div>
+
+  <div class="autor-top">Guilherme Avelar</div>
+
+  <div class="badge-urgencia">⚠ Fiscalização ativa</div>
+
+  <!-- Escudo SVG -->
+  <div class="shield-wrap">
+    <svg class="shield-svg" width="110" height="120" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Escudo externo -->
+      <path d="M55 4 L100 22 L100 62 C100 88 78 108 55 116 C32 108 10 88 10 62 L10 22 Z"
+            fill="#1a0000" stroke="#C41010" stroke-width="3"/>
+      <!-- Escudo interno (detalhe) -->
+      <path d="M55 16 L90 30 L90 62 C90 83 74 100 55 107 C36 100 20 83 20 62 L20 30 Z"
+            fill="none" stroke="#C41010" stroke-width="1" opacity="0.4"/>
+      <!-- Check mark central -->
+      <path d="M36 60 L49 73 L76 46" stroke="#C41010" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+
+  <div class="text-block">
+    <div class="marca">Empresa Protegida™</div>
+    <div class="titulo">NR-1 sem<br><span>complicação</span></div>
+    <div class="divider"></div>
+    <div class="subtitulo">
+      O guia direto para o dono de empresa entender os riscos psicossociais e proteger seu negócio
+    </div>
+  </div>
+
+  <div class="autor-footer">
+    <div>
+      <div class="nome">Guilherme Avelar</div>
+      <div class="cargo">Master Coach · RH · Inteligência Tributária</div>
+    </div>
+    <div class="nr1-badge">NR-1 · 2026</div>
+  </div>
+</div>
+</body>
+</html>

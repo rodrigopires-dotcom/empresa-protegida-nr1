@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Mapa Mental — Empresa Protegida | Guilherme Avelar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:#0d0d0d;
+    color:#fff;
+    min-height:100vh;
+    padding:40px 30px;
+  }
+
+  /* ── HEADER ── */
+  .header{text-align:center;margin-bottom:50px;}
+  .header .logo-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#1a1a1a;border:1px solid #333;
+    border-radius:30px;padding:6px 18px;
+    font-size:12px;font-weight:600;letter-spacing:.15em;
+    text-transform:uppercase;color:#888;margin-bottom:16px;
+  }
+  .header h1{font-size:32px;font-weight:900;letter-spacing:-1px;margin-bottom:6px;}
+  .header h1 span{color:#C41010;}
+  .header p{font-size:14px;color:#666;}
+
+  /* ── LEGEND ── */
+  .legend{
+    display:flex;gap:20px;justify-content:center;
+    margin-bottom:40px;flex-wrap:wrap;
+  }
+  .leg-item{display:flex;align-items:center;gap:8px;font-size:12px;color:#aaa;}
+  .leg-dot{width:12px;height:12px;border-radius:50%;}
+  .leg-dot.done{background:#22c55e;}
+  .leg-dot.pending{background:#f59e0b;}
+  .leg-dot.waiting{background:#ef4444;}
+
+  /* ── MAIN FLOW ── */
+  .flow{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    max-width:1400px;
+    margin:0 auto;
+    position:relative;
+  }
+
+  /* columns */
+  .col{
+    display:flex;flex-direction:column;gap:12px;
+    padding:0 10px;
+    position:relative;
+  }
+  .col::after{
+    content:'';
+    position:absolute;right:-1px;top:60px;bottom:60px;
+    width:1px;background:linear-gradient(to bottom,transparent,#333 20%,#333 80%,transparent);
+  }
+  .col:last-child::after{display:none;}
+
+  .col-title{
+    text-align:center;
+    background:#1a1a1a;
+    border:1px solid #2a2a2a;
+    border-top:3px solid var(--accent,#C41010);
+    border-radius:10px;
+    padding:14px 10px;
+    margin-bottom:4px;
+  }
+  .col-title .step{
+    font-size:10px;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--accent,#C41010);margin-bottom:4px;
+  }
+  .col-title .name{font-size:15px;font-weight:800;}
+  .col-title .sub{font-size:11px;color:#666;margin-top:3px;}
+
+  /* cards */
+  .card{
+    background:#1a1a1a;
+    border:1px solid #2a2a2a;
+    border-radius:10px;
+    padding:12px 14px;
+    position:relative;
+    transition:border-color .2s;
+  }
+  .card:hover{border-color:#444;}
+  .card .status{
+    position:absolute;top:10px;right:10px;
+    width:8px;height:8px;border-radius:50%;
+  }
+  .card .status.done{background:#22c55e;box-shadow:0 0 6px #22c55e88;}
+  .card .status.pending{background:#f59e0b;box-shadow:0 0 6px #f59e0b88;}
+  .card .status.waiting{background:#ef4444;box-shadow:0 0 6px #ef444488;}
+  .card .card-title{font-size:13px;font-weight:700;margin-bottom:5px;padding-right:14px;}
+  .card .card-body{font-size:11.5px;color:#888;line-height:1.55;}
+  .card .tag{
+    display:inline-block;margin-top:7px;
+    font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:2px 8px;border-radius:20px;
+  }
+  .tag.done-tag{background:#14532d;color:#4ade80;}
+  .tag.pending-tag{background:#451a03;color:#fbbf24;}
+  .tag.waiting-tag{background:#450a0a;color:#f87171;}
+
+  /* DEGRAUS */
+  .ladder{
+    max-width:1400px;
+    margin:50px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .degrau{
+    border-radius:14px;
+    padding:22px 20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .degrau::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:4px;
+    background:var(--d-color,#C41010);
+  }
+  .degrau-1{background:#1a0a0a;border:1px solid #3a1010;}
+  .degrau-2{background:#0a120a;border:1px solid #103a10;}
+  .degrau-3{background:#0a0a1a;border:1px solid #10103a;}
+  .degrau-num{
+    font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--d-color);margin-bottom:8px;
+  }
+  .degrau h3{font-size:20px;font-weight:900;margin-bottom:4px;}
+  .degrau .d-price{font-size:13px;color:#666;margin-bottom:12px;}
+  .degrau ul{list-style:none;padding:0;}
+  .degrau ul li{
+    font-size:12.5px;color:#aaa;padding:5px 0;
+    border-bottom:1px solid rgba(255,255,255,.04);
+    display:flex;align-items:flex-start;gap:8px;
+  }
+  .degrau ul li:last-child{border-bottom:none;}
+  .degrau ul li .li-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--d-color);margin-top:5px;flex-shrink:0;
+  }
+  .d-badge{
+    margin-top:14px;display:inline-block;
+    font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    padding:4px 12px;border-radius:20px;
+  }
+  .d1-badge{background:#3a1010;color:#f87171;}
+  .d2-badge{background:#103a10;color:#4ade80;}
+  .d3-badge{background:#10103a;color:#818cf8;}
+
+  /* ARROWS */
+  .arrows{
+    display:flex;justify-content:center;align-items:center;
+    gap:0;max-width:1400px;margin:30px auto 0;
+  }
+  .arr-block{flex:1;text-align:center;}
+  .arr-line{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:12px;color:#444;font-weight:500;
+  }
+  .arr-line::before,.arr-line::after{
+    content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,#333,transparent);
+  }
+
+  /* STATS */
+  .stats{
+    max-width:1400px;margin:50px auto 0;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .stat-card{
+    background:#1a1a1a;border:1px solid #2a2a2a;
+    border-radius:12px;padding:20px;text-align:center;
+  }
+  .stat-card .stat-num{font-size:36px;font-weight:900;line-height:1;}
+  .stat-card .stat-label{font-size:12px;color:#666;margin-top:6px;}
+  .green{color:#22c55e;}
+  .amber{color:#f59e0b;}
+  .red-col{color:#ef4444;}
+  .white-col{color:#fff;}
+
+  /* FOOTER */
+  .footer{
+    text-align:center;margin-top:50px;
+    font-size:11px;color:#333;letter-spacing:.1em;text-transform:uppercase;
+  }
+
+  /* CONNECTOR ARROWS BETWEEN COLS */
+  .flow-arrow{
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;color:#333;padding:0 4px;align-self:center;
+    flex-shrink:0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-tag">🛡️ Empresa Protegida™ · Guilherme Avelar · NR-1</div>
+  <h1>Mapa Mental do <span>Projeto</span></h1>
+  <p>Do tráfego à mentoria — estrutura completa do ecossistema · Atualizado em 04/06/2026</p>
+</div>
+
+<!-- LEGENDA -->
+<div class="legend">
+  <div class="leg-item"><div class="leg-dot done"></div> Pronto / Entregue</div>
+  <div class="leg-item"><div class="leg-dot pending"></div> Em andamento / Aguardando ativos</div>
+  <div class="leg-item"><div class="leg-dot waiting"></div> Não iniciado / Bloqueado</div>
+</div>
+
+<!-- FLUXO PRINCIPAL (4 colunas) -->
+<div class="flow">
+
+  <!-- COL 1: TRÁFEGO -->
+  <div class="col" style="--accent:#C41010">
+    <div class="col-title">
+      <div class="step">Etapa 1</div>
+      <div class="name">🎯 Tráfego</div>
+      <div class="sub">Captação de atenção</div>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Estratégia de Anúncios (Meta)</div>
+      <div class="card-body">Plano de campanha: aquisição, remarketing, ascensão. Públicos e estrutura definidos.</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Copy dos Anúncios (4 ângulos)</div>
+      <div class="card-body">Urgência/multa · PME específico · Simplicidade · Autoridade Guilherme</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Roteiros de Reels (3)</div>
+      <div class="card-body">Fiscalização começou (60s) · O que é psicossocial (90s) · Lançamento eBook (60s)</div>
+      <span class="tag done-tag">✓ Roteiro pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Conteúdo Orgânico Instagram</div>
+      <div class="card-body">3 carrosséis roteirizados · Story enquete · 5 capas de highlight</div>
+      <span class="tag done-tag">✓ Roteiro pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Criativos Visuais (Design)</div>
+      <div class="card-body">Imagens dos anúncios e posts. Não precisam da foto do Guilherme.</div>
+      <span class="tag waiting-tag">⏳ A produzir</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Conta Meta Ads + Pixel</div>
+      <div class="card-body">Gerenciador de negócios, pixel instalado na página, eventos configurados.</div>
+      <span class="tag waiting-tag">⏳ Aguarda setup</span>
+    </div>
+  </div>
+
+  <!-- COL 2: CAPTAÇÃO -->
+  <div class="col" style="--accent:#f59e0b">
+    <div class="col-title">
+      <div class="step">Etapa 2</div>
+      <div class="name">📥 Captação</div>
+      <div class="sub">Converter atenção em lead/compra</div>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Instagram — Bio + Highlights</div>
+      <div class="card-body">Nova bio com NR-1 + link do eBook. Destaques: 🛡️ NR-1 · 📘 eBook · Tributário · Elite · bmg</div>
+      <span class="tag done-tag">✓ Texto pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Copy da Página de Vendas</div>
+      <div class="card-body">Hero → Problema → Solução → Benefícios → Prova → Oferta (stack R$198→R$27) → Garantia 7d → FAQ → P.S.</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Statement de Autoridade</div>
+      <div class="card-body">"Não sou técnico de SST. Sou empresário que entende de gestão, pessoas e comportamento — e foi exatamente aí que a NR-1 foi parar."</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Página de Vendas (dev)</div>
+      <div class="card-body">Desenvolver em HTML/WordPress/Systeme.io com a copy pronta. Foto do Guilherme no hero.</div>
+      <span class="tag waiting-tag">⏳ Aguarda foto</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Checkout (Hotmart/Kiwify)</div>
+      <div class="card-body">Produto R$27 + order bump R$27. Entrega automática por e-mail.</div>
+      <span class="tag waiting-tag">⏳ A configurar</span>
+    </div>
+  </div>
+
+  <!-- COL 3: CONVERSÃO -->
+  <div class="col" style="--accent:#22c55e">
+    <div class="col-title">
+      <div class="step">Etapa 3</div>
+      <div class="name">💬 Conversão</div>
+      <div class="sub">eBook → Treinamento → Consultoria</div>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">eBook — Conteúdo Completo</div>
+      <div class="card-body">7 capítulos · 5 categorias oficiais NR-1 · Checklist · CTA para treinamento. Fatos legais verificados (Portaria 1.419/2024).</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">eBook — Diagramação HTML</div>
+      <div class="card-body">Capa preta + vermelha + logo. 8 páginas A4. Pronto para PDF final.</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Playbook de Vendas WhatsApp</div>
+      <div class="card-body">Scripts A→F · Qualificação (5 perguntas) · Quebra de objeções · Régua de follow-up</div>
+      <span class="tag done-tag">✓ Pronto</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Sequência de E-mail (plano)</div>
+      <div class="card-body">E1 boas-vindas → E2 engajamento → E3 os 5 erros → E4 oferta treinamento → E5 urgência</div>
+      <span class="tag done-tag">✓ Estrutura pronta</span>
+    </div>
+
+    <div class="card">
+      <div class="status pending"></div>
+      <div class="card-title">Bônus do Stack (3 itens)</div>
+      <div class="card-body">Checklist de conformidade · Questionário psicossocial anônimo · Mini-aula com profissional habilitado</div>
+      <span class="tag pending-tag">⚠ Aguarda parceiro SST</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">WhatsApp Comercial</div>
+      <div class="card-body">Número separado · perfil "Empresa Protegida" · mensagem automática.</div>
+      <span class="tag waiting-tag">⏳ A configurar</span>
+    </div>
+  </div>
+
+  <!-- COL 4: RETENÇÃO & ESCALA -->
+  <div class="col" style="--accent:#818cf8">
+    <div class="col-title">
+      <div class="step">Etapa 4</div>
+      <div class="name">🚀 Escala</div>
+      <div class="sub">Treinamento → Mentoria</div>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Posicionamento Degrau 2</div>
+      <div class="card-body">Treinamento em vídeo: passo a passo completo das 5 categorias + modelos prontos + checklist.</div>
+      <span class="tag done-tag">✓ Estrutura pronta</span>
+    </div>
+
+    <div class="card">
+      <div class="status done"></div>
+      <div class="card-title">Posicionamento Degrau 3</div>
+      <div class="card-body">Consultoria/Adequação: diagnóstico → plano → documentação → acompanhamento. Possível recorrência (revisão do PGR).</div>
+      <span class="tag done-tag">✓ Estrutura pronta</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Produção do Treinamento</div>
+      <div class="card-body">Roteiro, gravação, edição. Plataforma de entrega. Módulos + templates prontos para download.</div>
+      <span class="tag waiting-tag">⏳ Pós-lançamento eBook</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">Precificação (Degraus 2 e 3)</div>
+      <div class="card-body">Treinamento: R$ ? · Consultoria: R$ ? Definir preços e estrutura de pacotes.</div>
+      <span class="tag waiting-tag">⏳ A definir</span>
+    </div>
+
+    <div class="card">
+      <div class="status waiting"></div>
+      <div class="card-title">IA + WhatsApp API (Fase 2)</div>
+      <div class="card-body">Agente de IA para triagem, qualificação e resposta 24/7. Hand-off humano no fechamento.</div>
+      <span class="tag waiting-tag">⏳ Fase 2 futura</span>
+    </div>
+  </div>
+</div>
+
+<!-- ESCADA DE VALOR -->
+<div style="max-width:1400px;margin:60px auto 0;text-align:center;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#C41010;margin-bottom:16px;">Escada de Valor — Empresa Protegida™</div>
+  <div style="font-size:13px;color:#555;margin-bottom:28px;">Cada degrau gera o cliente do próximo</div>
+</div>
+
+<div class="ladder">
+  <!-- DEGRAU 1 -->
+  <div class="degrau degrau-1" style="--d-color:#ef4444;">
+    <div class="degrau-num">Degrau 1 — Entrada</div>
+    <h3>eBook</h3>
+    <div class="d-price">R$ 27 · lançamento</div>
+    <ul>
+      <li><div class="li-dot"></div>NR-1 sem complicação — 7 capítulos</li>
+      <li><div class="li-dot"></div>As 5 categorias oficiais de risco psicossocial</li>
+      <li><div class="li-dot"></div>Checklist de conformidade (bônus)</li>
+      <li><div class="li-dot"></div>Questionário anônimo (bônus)</li>
+      <li><div class="li-dot"></div>Mini-aula com profissional habilitado (bônus)</li>
+      <li><div class="li-dot"></div>Garantia de 7 dias</li>
+    </ul>
+    <span class="d-badge d1-badge">✓ Conteúdo pronto</span>
+  </div>
+
+  <!-- DEGRAU 2 -->
+  <div class="degrau degrau-2" style="--d-color:#22c55e;">
+    <div class="degrau-num">Degrau 2 — Transformação</div>
+    <h3>Treinamento em Vídeo</h3>
+    <div class="d-price">R$ ??? · médio ticket</div>
+    <ul>
+      <li><div class="li-dot"></div>Passo a passo das 5 categorias no PGR</li>
+      <li><div class="li-dot"></div>Modelos editáveis de documentação</li>
+      <li><div class="li-dot"></div>Checklist de adequação completa</li>
+      <li><div class="li-dot"></div>Exemplos práticos por segmento</li>
+      <li><div class="li-dot"></div>Acesso à comunidade (a definir)</li>
+    </ul>
+    <span class="d-badge d2-badge">⏳ A produzir</span>
+  </div>
+
+  <!-- DEGRAU 3 -->
+  <div class="degrau degrau-3" style="--d-color:#818cf8;">
+    <div class="degrau-num">Degrau 3 — Alta Performance</div>
+    <h3>Consultoria / Mentoria</h3>
+    <div class="d-price">R$ ??? · alto ticket · recorrência</div>
+    <ul>
+      <li><div class="li-dot"></div>Diagnóstico completo da empresa</li>
+      <li><div class="li-dot"></div>Plano de ação personalizado</div></li>
+      <li><div class="li-dot"></div>Adequação e documentação do PGR</li>
+      <li><div class="li-dot"></div>Acompanhamento e revisão periódica</li>
+      <li><div class="li-dot"></div>Acesso direto ao Guilherme</li>
+    </ul>
+    <span class="d-badge d3-badge">⏳ Estrutura definida</span>
+  </div>
+</div>
+
+<!-- FLUXO ARROWS -->
+<div class="arrows" style="max-width:1400px;margin:30px auto 0;">
+  <div class="arr-block">
+    <div class="arr-line">Anúncio → Instagram → Bio</div>
+  </div>
+  <div style="color:#C41010;font-size:22px;padding:0 10px;">→</div>
+  <div class="arr-block">
+    <div class="arr-line">Página de Vendas → Checkout</div>
+  </div>
+  <div style="color:#C41010;font-size:22px;padding:0 10px;">→</div>
+  <div class="arr-block">
+    <div class="arr-line">eBook → E-mail Sequence</div>
+  </div>
+  <div style="color:#C41010;font-size:22px;padding:0 10px;">→</div>
+  <div class="arr-block">
+    <div class="arr-line">WhatsApp → Treinamento → Mentoria</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-num green">18</div>
+    <div class="stat-label">Documentos / peças prontos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num amber">6</div>
+    <div class="stat-label">Em andamento / aguardando ativos</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num red-col">5</div>
+    <div class="stat-label">Ativos críticos que só você resolve</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-num white-col">5 sem</div>
+    <div class="stat-label">Estimativa para lançamento</div>
+  </div>
+</div>
+
+<!-- 5 DESBLOQUEADORES -->
+<div style="max-width:1400px;margin:40px auto 0;background:#1a0a0a;border:1px solid #3a1010;border-left:4px solid #C41010;border-radius:12px;padding:24px 28px;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#C41010;margin-bottom:14px;">🔑 Os 5 desbloqueadores — só você resolve</div>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
+    <div style="text-align:center;padding:16px 10px;background:#111;border-radius:10px;border:1px solid #2a2a2a;">
+      <div style="font-size:24px;margin-bottom:8px;">📸</div>
+      <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Foto do Guilherme</div>
+      <div style="font-size:11px;color:#666;">Capa eBook, página de vendas, anúncios</div>
+    </div>
+    <div style="text-align:center;padding:16px 10px;background:#111;border-radius:10px;border:1px solid #2a2a2a;">
+      <div style="font-size:24px;margin-bottom:8px;">🏗️</div>
+      <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Parceiro SST</div>
+      <div style="font-size:11px;color:#666;">Revisão técnica, mini-aula, credibilidade</div>
+    </div>
+    <div style="text-align:center;padding:16px 10px;background:#111;border-radius:10px;border:1px solid #2a2a2a;">
+      <div style="font-size:24px;margin-bottom:8px;">💳</div>
+      <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Conta Meta Ads</div>
+      <div style="font-size:11px;color:#666;">Campanhas não rodam sem isso</div>
+    </div>
+    <div style="text-align:center;padding:16px 10px;background:#111;border-radius:10px;border:1px solid #2a2a2a;">
+      <div style="font-size:24px;margin-bottom:8px;">🛒</div>
+      <div style="font-size:12px;font-weight:700;margin-bottom:4px;">Checkout</div>
+      <div style="font-size:11px;color:#666;">Hotmart / Kiwify / Eduzz</div>
+    </div>
+    <div style="text-align:center;padding:16px 10px;background:#111;border-radius:10px;border:1px solid #2a2a2a;">
+      <div style="font-size:24px;margin-bottom:8px;">📱</div>
+      <div style="font-size:12px;font-weight:700;margin-bottom:4px;">WhatsApp Comercial</div>
+      <div style="font-size:11px;color:#666;">Número separado + setup inicial</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer" style="margin-top:40px;">
+  Empresa Protegida™ · Guilherme Avelar · @guiavelaroficial · NR-1 / Riscos Psicossociais · Gerado em 04/06/2026
+</div>
+
+</body>
+</html>
