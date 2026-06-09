@@ -100,7 +100,7 @@ São dependências que **travam o lançamento** — sinalizar sempre que relevan
 1. ~~**Revisão do eBook por profissional habilitado em SST**~~ ✅ **APROVADO (09/06/2026)**
 2. **Confirmar dados legais** (data da fiscalização, valores de multa, exigências da norma) — portarias do MTE mudam; **reconfirmar a cada publicação**.
 3. **Checkout/link + preços dos degraus 2 e 3** definidos.
-4. **Preencher CTA do eBook** (nome/link do treinamento + número do WhatsApp) + logo oficial.
+4. ~~**Preencher CTA do eBook**~~ ✅ **CTA atualizado (09/06/2026)** — aponta para Grupo WhatsApp Empresa Protegida™ (`wa.me/5531997194731`). Logo dispensada.
 
 > Regra de compliance: **nunca prometer "zero multa"**. Garantia sempre no entregável.
 

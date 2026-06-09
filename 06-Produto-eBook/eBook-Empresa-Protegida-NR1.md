@@ -149,9 +149,9 @@ Se você chegou até aqui, já está à frente da maioria dos empresários — q
 
 Mas **entender** é só metade do caminho. A outra metade é **fazer**: montar (ou atualizar) o PGR com os riscos psicossociais, do jeito certo, com a documentação que protege a sua empresa de verdade.
 
-Foi para isso que eu preparei o **[TREINAMENTO — nome a definir]**: em poucas horas de aula, você vai aprender a mapear as 5 categorias de risco na sua empresa, montar o plano de ação e sair com o PGR atualizado — com o documento pronto para apresentar ao fiscal, sem precisar contratar um consultor para fazer do zero. Tudo com modelos prontos, checklists e exemplos do mundo real das pequenas e médias empresas.
+Para isso, eu criei o **Grupo Empresa Protegida™ no WhatsApp**: um espaço gratuito onde você recebe conteúdos práticos sobre NR-1, atualizações das portarias, modelos e checklists prontos para usar — e acesso antecipado ao treinamento completo de implementação quando ele abrir.
 
-👉 **[CTA — link/contato do treinamento]**
+👉 **[Entrar no Grupo Empresa Protegida™ →](https://wa.me/5531997194731?text=Quero%20entrar%20no%20grupo%20Empresa%20Protegida)**
 
 E se você prefere que esse trabalho seja **feito junto com você** (ou por nós, do começo ao fim), também temos esse caminho. É só chamar no WhatsApp: **[(31) 99719-4731](https://wa.me/5531997194731)**.
 
