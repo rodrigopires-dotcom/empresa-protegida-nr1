@@ -86,8 +86,12 @@ O usuário fala **só com você**. Seu trabalho é:
 - ✅ Autoridade (Brand) — `01-Equipe-Estrategia/PLANO-DE-AUTORIDADE-GUILHERME.md`
 - ✅ Roteiros de conteúdo + Plano de ação do cliente
 - ✅ eBook (degrau 1) escrito + diagramado — `06-Produto-eBook/`
+- ✅ eBook PDF final gerado (354KB) — `06-Produto-eBook/eBook-Empresa-Protegida-NR1-FINAL.pdf`
+- ✅ Meta Pixel conectado ao Hotmart (09/06/2026) — Pixel `1792811288366350`, Evento via Web, 3 eventos: Vendas, Visita Pagamento, Visita Produto
+- ✅ Estrutura de campanhas Meta Ads (Pedro Sobral) — `02-Equipe-Marketing-Trafego/CAMPANHAS-META-ADS.md`
+- ✅ Repo GitHub criado — `github.com/rodrigopires-dotcom/empresa-protegida-nr1` (privado)
 
-**PRÓXIMO na fila:** Tráfego/anúncios (`traffic-masters` + copy de ads) → Design (escudo na capa/criativos + ensaio de foto).
+**PRÓXIMO na fila:** Criativos para os anúncios → Ativar campanhas no Ads Manager → Re-upload do PDF no Hotmart (conteúdo do produto).
 
 **Fase futura:** API WhatsApp/Instagram + agente de IA de atendimento/conversão (acionar `AIOS`).
 
