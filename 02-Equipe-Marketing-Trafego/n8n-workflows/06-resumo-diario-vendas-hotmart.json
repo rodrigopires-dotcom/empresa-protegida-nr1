@@ -25,15 +25,17 @@
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
-            { "name": "Authorization", "value": "={{ $vars.HOTMART_BASIC }}" },
             { "name": "Content-Type", "value": "application/json" }
           ]
-        }
+        },
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "httpHeaderAuth"
       },
       "name": "Hotmart · Obter Token",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
-      "position": [460, 300]
+      "position": [460, 300],
+      "credentials": { "httpHeaderAuth": { "name": "Hotmart Basic Auth" } }
     },
     {
       "parameters": {
@@ -61,7 +63,7 @@
     },
     {
       "parameters": {
-        "jsCode": "// Processar vendas e montar resumo do dia\nconst items = $input.first().json.items || [];\nconst hoje = new Date();\nconst ontem = new Date(hoje.getTime() - 24 * 60 * 60 * 1000);\nconst ontemStr = ontem.toLocaleDateString('pt-BR');\n\n// Filtrar apenas vendas de ontem\nconst vendasOntem = items.filter(item => {\n  const dataVenda = new Date(item.purchase?.approved_date || item.purchase?.date || 0);\n  return dataVenda.toLocaleDateString('pt-BR') === ontemStr;\n});\n\nconst totalVendas = vendasOntem.length;\nconst totalReceita = vendasOntem.reduce((sum, item) => {\n  return sum + parseFloat(item.purchase?.price?.value || 27);\n}, 0);\n\n// Métodos de pagamento\nconst metodos = {};\nvendasOntem.forEach(item => {\n  const tipo = item.purchase?.payment?.type || 'OUTRO';\n  metodos[tipo] = (metodos[tipo] || 0) + 1;\n});\n\nconst metodosStr = Object.entries(metodos)\n  .map(([k, v]) => {\n    const labels = { 'PIX': 'Pix', 'CREDIT_CARD': 'Cartão', 'BILLET': 'Boleto' };\n    return `${labels[k] || k}: ${v}`;\n  })\n  .join(' · ');\n\n// Emoji baseado no resultado\nconst emoji = totalVendas === 0 ? '😴' : totalVendas >= 3 ? '🚀' : '📈';\n\nlet msg = `${emoji} VENDAS DE ONTEM — Empresa Protegida™\\n`;\nmsg += `📅 ${ontemStr}\\n\\n`;\n\nif (totalVendas === 0) {\n  msg += `Vendas: 0\\n`;\n  msg += `Receita: R$0,00\\n\\n`;\n  msg += `💡 Campanhas ativas? Verificar criativos.`;\n} else {\n  msg += `🛒 Vendas: ${totalVendas}\\n`;\n  msg += `💰 Receita: R$${totalReceita.toFixed(2)}\\n`;\n  if (metodosStr) msg += `💳 ${metodosStr}\\n`;\n  msg += `\\n🥷 Vai lá e faz!`;\n}\n\nreturn [{ json: { mensagem: msg, total_vendas: totalVendas, receita: totalReceita } }];"
+        "jsCode": "const items = $input.first().json.items || [];\nconst hoje = new Date();\nconst ontem = new Date(hoje.getTime() - 24 * 60 * 60 * 1000);\nconst ontemStr = ontem.toLocaleDateString('pt-BR');\n\nconst vendasOntem = items.filter(item => {\n  const dataVenda = new Date(item.purchase?.approved_date || item.purchase?.date || 0);\n  return dataVenda.toLocaleDateString('pt-BR') === ontemStr;\n});\n\nconst totalVendas = vendasOntem.length;\nconst totalReceita = vendasOntem.reduce((sum, item) => sum + parseFloat(item.purchase?.price?.value || 27), 0);\n\nconst metodos = {};\nvendasOntem.forEach(item => {\n  const tipo = item.purchase?.payment?.type || 'OUTRO';\n  metodos[tipo] = (metodos[tipo] || 0) + 1;\n});\n\nconst labels = { 'PIX': 'Pix', 'CREDIT_CARD': 'Cartão', 'BILLET': 'Boleto' };\nconst metodosStr = Object.entries(metodos).map(([k,v]) => `${labels[k]||k}: ${v}`).join(' · ');\n\nconst emoji = totalVendas === 0 ? '😴' : totalVendas >= 3 ? '🚀' : '📈';\n\nlet msg = `${emoji} VENDAS DE ONTEM — Empresa Protegida™\\n📅 ${ontemStr}\\n\\n`;\nif (totalVendas === 0) {\n  msg += `Vendas: 0\\nReceita: R$0,00\\n\\n💡 Campanhas ativas? Verificar criativos.`;\n} else {\n  msg += `🛒 Vendas: ${totalVendas}\\n💰 Receita: R$${totalReceita.toFixed(2)}\\n`;\n  if (metodosStr) msg += `💳 ${metodosStr}\\n`;\n  msg += `\\n🥷 Vai lá e faz!`;\n}\n\nreturn [{ json: { mensagem: msg } }];"
       },
       "name": "Calcular resumo",
       "type": "n8n-nodes-base.code",
