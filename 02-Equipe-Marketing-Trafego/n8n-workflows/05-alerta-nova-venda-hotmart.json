@@ -1,0 +1,46 @@
+{
+  "name": "NR1 · Alerta Nova Venda (Hotmart → Telegram)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "hotmart-venda",
+        "responseMode": "onReceived",
+        "responseData": "firstEntryJson"
+      },
+      "name": "Webhook · Hotmart",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "webhookId": "hotmart-nova-venda"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processar payload do webhook Hotmart\nconst body = $input.first().json.body || $input.first().json;\n\n// Estrutura do webhook Hotmart\nconst event = body.event || '';\nconst data = body.data || {};\n\n// Só processar compras aprovadas\nconst eventosValidos = ['PURCHASE_COMPLETE', 'PURCHASE_APPROVED', 'PURCHASE_BILLET_PRINTED'];\nif (!eventosValidos.includes(event)) {\n  return []; // ignorar outros eventos\n}\n\nconst purchase = data.purchase || {};\nconst buyer = data.buyer || {};\nconst product = data.product || {};\n\nconst valor = purchase.price?.value || 27.00;\nconst moeda = purchase.price?.currency_value || 'BRL';\nconst pagamento = purchase.payment?.type || 'Desconhecido';\nconst status = purchase.status || '';\nconst transactionId = purchase.transaction || '';\n\n// Nome do comprador (só primeiro nome + inicial do sobrenome por privacidade)\nconst nomeCompleto = buyer.name || 'Comprador';\nconst partesNome = nomeCompleto.trim().split(' ');\nconst nomeExibido = partesNome.length > 1\n  ? `${partesNome[0]} ${partesNome[partesNome.length-1][0]}.`\n  : partesNome[0];\n\n// Método de pagamento formatado\nconst metodos = {\n  'CREDIT_CARD': '💳 Cartão de Crédito',\n  'BILLET': '📄 Boleto',\n  'PIX': '⚡ Pix',\n  'PAYPAL': '🅿️ PayPal',\n  'GOOGLE_PAY': '🟢 Google Pay'\n};\nconst metodoPagamento = metodos[pagamento] || pagamento;\n\n// Data e hora\nconst agora = new Date();\nconst hora = agora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });\nconst data_str = agora.toLocaleDateString('pt-BR');\n\n// Emoji por status\nconst statusEmoji = event === 'PURCHASE_COMPLETE' || event === 'PURCHASE_APPROVED' ? '🎉' : '⏳';\nconst statusTxt = event === 'PURCHASE_COMPLETE' || event === 'PURCHASE_APPROVED' ? 'VENDA CONFIRMADA' : 'BOLETO GERADO';\n\nconst mensagem = `${statusEmoji} ${statusTxt} — Empresa Protegida™\n` +\n  `📅 ${data_str} às ${hora}\n\n` +\n  `💰 Valor: R$${parseFloat(valor).toFixed(2)}\n` +\n  `👤 Comprador: ${nomeExibido}\n` +\n  `${metodoPagamento}\n` +\n  `🔖 ID: ${transactionId.slice(-8)}\n\n` +\n  `🛡️ Vai lá e faz!`;\n\nreturn [{ json: { mensagem } }];"
+      },
+      "name": "Processar venda",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "198613263",
+        "text": "={{ $json.mensagem }}",
+        "additionalFields": {}
+      },
+      "name": "Telegram · Notificar venda",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [680, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    }
+  ],
+  "connections": {
+    "Webhook · Hotmart": { "main": [[{ "node": "Processar venda", "type": "main", "index": 0 }]] },
+    "Processar venda": { "main": [[{ "node": "Telegram · Notificar venda", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["empresa-protegida", "vendas", "hotmart"]
+}

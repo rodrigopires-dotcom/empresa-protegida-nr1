@@ -1,0 +1,93 @@
+{
+  "name": "NR1 · Resumo Diário de Vendas (Hotmart)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "name": "Diariamente 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api-sec-vlc.hotmart.com/security/oauth/token",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "grant_type", "value": "client_credentials" }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "={{ $vars.HOTMART_BASIC }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        }
+      },
+      "name": "Hotmart · Obter Token",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://developers.hotmart.com/payments/api/v1/sales/history",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "product_id", "value": "7904029" },
+            { "name": "max_results", "value": "50" },
+            { "name": "transaction_status", "value": "COMPLETE,APPROVED" }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "Authorization", "value": "=Bearer {{ $json.access_token }}" }
+          ]
+        }
+      },
+      "name": "Hotmart · Vendas de ontem",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Processar vendas e montar resumo do dia\nconst items = $input.first().json.items || [];\nconst hoje = new Date();\nconst ontem = new Date(hoje.getTime() - 24 * 60 * 60 * 1000);\nconst ontemStr = ontem.toLocaleDateString('pt-BR');\n\n// Filtrar apenas vendas de ontem\nconst vendasOntem = items.filter(item => {\n  const dataVenda = new Date(item.purchase?.approved_date || item.purchase?.date || 0);\n  return dataVenda.toLocaleDateString('pt-BR') === ontemStr;\n});\n\nconst totalVendas = vendasOntem.length;\nconst totalReceita = vendasOntem.reduce((sum, item) => {\n  return sum + parseFloat(item.purchase?.price?.value || 27);\n}, 0);\n\n// Métodos de pagamento\nconst metodos = {};\nvendasOntem.forEach(item => {\n  const tipo = item.purchase?.payment?.type || 'OUTRO';\n  metodos[tipo] = (metodos[tipo] || 0) + 1;\n});\n\nconst metodosStr = Object.entries(metodos)\n  .map(([k, v]) => {\n    const labels = { 'PIX': 'Pix', 'CREDIT_CARD': 'Cartão', 'BILLET': 'Boleto' };\n    return `${labels[k] || k}: ${v}`;\n  })\n  .join(' · ');\n\n// Emoji baseado no resultado\nconst emoji = totalVendas === 0 ? '😴' : totalVendas >= 3 ? '🚀' : '📈';\n\nlet msg = `${emoji} VENDAS DE ONTEM — Empresa Protegida™\\n`;\nmsg += `📅 ${ontemStr}\\n\\n`;\n\nif (totalVendas === 0) {\n  msg += `Vendas: 0\\n`;\n  msg += `Receita: R$0,00\\n\\n`;\n  msg += `💡 Campanhas ativas? Verificar criativos.`;\n} else {\n  msg += `🛒 Vendas: ${totalVendas}\\n`;\n  msg += `💰 Receita: R$${totalReceita.toFixed(2)}\\n`;\n  if (metodosStr) msg += `💳 ${metodosStr}\\n`;\n  msg += `\\n🥷 Vai lá e faz!`;\n}\n\nreturn [{ json: { mensagem: msg, total_vendas: totalVendas, receita: totalReceita } }];"
+      },
+      "name": "Calcular resumo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "198613263",
+        "text": "={{ $json.mensagem }}",
+        "additionalFields": {}
+      },
+      "name": "Telegram · Enviar resumo",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [1120, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    }
+  ],
+  "connections": {
+    "Diariamente 9h": { "main": [[{ "node": "Hotmart · Obter Token", "type": "main", "index": 0 }]] },
+    "Hotmart · Obter Token": { "main": [[{ "node": "Hotmart · Vendas de ontem", "type": "main", "index": 0 }]] },
+    "Hotmart · Vendas de ontem": { "main": [[{ "node": "Calcular resumo", "type": "main", "index": 0 }]] },
+    "Calcular resumo": { "main": [[{ "node": "Telegram · Enviar resumo", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["empresa-protegida", "vendas", "hotmart"]
+}
