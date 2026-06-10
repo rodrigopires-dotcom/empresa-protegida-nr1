@@ -1,0 +1,64 @@
+{
+  "name": "NR1 · Relatório Diário de Campanhas",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 9 * * *" }]
+        }
+      },
+      "name": "Diariamente 9h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "=https://graph.facebook.com/v19.0/{{ $vars.META_AD_ACCOUNT }}/insights",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            { "name": "fields", "value": "campaign_name,spend,impressions,clicks,ctr,cpc,actions,cost_per_action_type,account_currency" },
+            { "name": "date_preset", "value": "yesterday" },
+            { "name": "level", "value": "account" },
+            { "name": "access_token", "value": "={{ $vars.META_TOKEN }}" }
+          ]
+        }
+      },
+      "name": "Meta Ads · Dados de ontem",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extrai e calcula métricas\nconst data = $input.first().json.data;\n\nif (!data || data.length === 0) {\n  return [{ json: { sem_dados: true } }];\n}\n\nconst d = data[0];\nconst spend = parseFloat(d.spend || 0);\nconst impressions = parseInt(d.impressions || 0);\nconst clicks = parseInt(d.clicks || 0);\nconst ctr = parseFloat(d.ctr || 0);\nconst cpc = parseFloat(d.cpc || 0);\n\n// Extrair compras (purchase)\nconst actions = d.actions || [];\nconst purchases = actions.find(a => a.action_type === 'purchase');\nconst numCompras = purchases ? parseInt(purchases.value) : 0;\n\nconst costPerAction = d.cost_per_action_type || [];\nconst cpaPurchase = costPerAction.find(a => a.action_type === 'purchase');\nconst cpa = cpaPurchase ? parseFloat(cpaPurchase.value) : 0;\n\nconst receita = numCompras * 27; // preço eBook R$27\nconst roas = spend > 0 ? receita / spend : 0;\n\n// Semáforos\nconst semaforo = (val, bom, atencao, invertido = false) => {\n  if (!invertido) {\n    if (val >= bom) return '✅';\n    if (val >= atencao) return '⚠️';\n    return '🔴';\n  } else {\n    if (val <= bom) return '✅';\n    if (val <= atencao) return '⚠️';\n    return '🔴';\n  }\n};\n\nconst sCTR = semaforo(ctr, 2.0, 1.0);\nconst sCPC = semaforo(cpc, 1.00, 1.50, true);\nconst sCPA = cpa > 0 ? semaforo(cpa, 15, 20, true) : '—';\nconst sROAS = roas > 0 ? semaforo(roas, 2.0, 1.35) : '—';\n\n// Budget\nconst budgetDia = 33.00;\nconst percGasto = ((spend / budgetDia) * 100).toFixed(0);\n\n// Alerta se algum KPI crítico\nconst alertas = [];\nif (ctr < 1.0 && impressions > 1000) alertas.push('CTR muito baixo — revisar criativos');\nif (cpc > 1.50) alertas.push('CPC alto — checar público e criativo');\nif (cpa > 20 && numCompras > 0) alertas.push('CPA acima do limite — pausar ad set mais caro');\nif (roas < 1.35 && numCompras > 0) alertas.push('ROAS abaixo do mínimo — avaliar pausa');\n\nconst hoje = new Date();\nconst ontem = new Date(hoje.getTime() - 24 * 60 * 60 * 1000);\nconst dataStr = ontem.toLocaleDateString('pt-BR');\n\nlet mensagem = `📊 RELATÓRIO DIÁRIO — Empresa Protegida™\\n📅 ${dataStr}\\n\\n`;\nmensagem += `💰 Gasto: R$${spend.toFixed(2)} / R$${budgetDia.toFixed(2)} (${percGasto}%)\\n`;\nmensagem += `📱 Impressões: ${impressions.toLocaleString('pt-BR')}\\n`;\nmensagem += `🖱️ Cliques: ${clicks.toLocaleString('pt-BR')}\\n`;\nmensagem += `📈 CTR: ${ctr.toFixed(2)}% ${sCTR}\\n`;\nmensagem += `💲 CPC: R$${cpc.toFixed(2)} ${sCPC}\\n`;\nmensagem += `🛒 Compras: ${numCompras}\\n`;\nmensagem += `💵 Receita estimada: R$${receita.toFixed(2)}\\n`;\nif (cpa > 0) mensagem += `📉 CPA: R$${cpa.toFixed(2)} ${sCPA}\\n`;\nif (roas > 0) mensagem += `🚀 ROAS: ${roas.toFixed(2)}x ${sROAS}\\n`;\n\nif (alertas.length > 0) {\n  mensagem += `\\n⚠️ AÇÕES NECESSÁRIAS:\\n`;\n  alertas.forEach(a => { mensagem += `• ${a}\\n`; });\n}\n\nreturn [{ json: { mensagem, tem_alerta: alertas.length > 0 } }];"
+      },
+      "name": "Processar e calcular KPIs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $vars.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.mensagem }}",
+        "additionalFields": { "parse_mode": "HTML" }
+      },
+      "name": "Enviar para Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [900, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    }
+  ],
+  "connections": {
+    "Diariamente 9h": { "main": [[{ "node": "Meta Ads · Dados de ontem", "type": "main", "index": 0 }]] },
+    "Meta Ads · Dados de ontem": { "main": [[{ "node": "Processar e calcular KPIs", "type": "main", "index": 0 }]] },
+    "Processar e calcular KPIs": { "main": [[{ "node": "Enviar para Telegram", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["empresa-protegida", "trafego", "meta-ads"]
+}

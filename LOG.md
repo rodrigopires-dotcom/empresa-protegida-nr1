@@ -41,3 +41,26 @@ Continuação de sessão anterior (contexto compactado). Produto Hotmart em stat
 - [ ] **Checkout Degrau 2** (treinamento R$297–497) — ainda indefinido.
 
 ---
+
+## Sessão 09/06/2026 — Automação e Planejamento Completo
+
+### Entregas realizadas
+
+| # | Entregável | Arquivo |
+|---|---|---|
+| 1 | Funil de vendas completo (anúncio → Hotmart → WA) | `02-Equipe-Marketing-Trafego/FUNIL-DE-VENDAS.md` |
+| 2 | Cadência de monitoramento (Pedro Sobral + KPIs) | `02-Equipe-Marketing-Trafego/MONITORAMENTO-CAMPANHAS.md` |
+| 3 | Cronograma de conteúdo 5-7x/semana (8 semanas de temas) | `02-Equipe-Marketing-Trafego/CRONOGRAMA-CONTEUDO.md` |
+| 4 | Guia de setup n8n + Telegram (do zero) | `02-Equipe-Marketing-Trafego/AUTOMACAO-N8N-TELEGRAM.md` |
+| 5 | Workflow n8n: relatório diário de campanhas (JSON importável) | `n8n-workflows/01-relatorio-diario-campanhas.json` |
+| 6 | Workflow n8n: lembrete semanal de conteúdo (JSON importável) | `n8n-workflows/03-lembrete-semanal-conteudo.json` |
+| 7 | Workflow n8n: lembrete diário de postagem (JSON importável) | `n8n-workflows/04-lembrete-diario-postagem.json` |
+| 8 | Lista de pendências priorizada | `02-Equipe-Marketing-Trafego/LISTA-DE-PENDENCIAS.md` |
+
+### Próximos passos prioritários
+1. Criar Grupo WhatsApp → link → atualizar eBook → re-upload Hotmart
+2. Setup n8n + Telegram (ver `AUTOMACAO-N8N-TELEGRAM.md`) — ~2h
+3. Produzir criativos + templates Canva
+4. Ativar campanhas Meta Ads
+
+---

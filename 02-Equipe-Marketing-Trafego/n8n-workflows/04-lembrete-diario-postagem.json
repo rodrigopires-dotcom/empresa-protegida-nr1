@@ -1,0 +1,44 @@
+{
+  "name": "NR1 · Lembrete Diário de Postagem",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 20 * * *" }]
+        }
+      },
+      "name": "Todo dia 20h",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verifica o que precisa postar AMANHÃ\nconst hoje = new Date();\nconst amanha = new Date(hoje.getTime() + 24 * 60 * 60 * 1000);\nconst diaSemana = amanha.getDay(); // 0=Dom, 1=Seg, ..., 6=Sab\n\n// Mapeamento do cronograma\nconst agenda = {\n  0: null, // Domingo — opcional stories bastidores\n  1: { formato: '📊 Carrossel', hora: '7h30', pilar: 'Educação', desc: 'Carrossel educativo — tema da semana' },\n  2: { formato: '🎬 Reels', hora: '19h00', pilar: 'Urgência', desc: 'Reels de urgência/case — tema da semana' },\n  3: { formato: '📲 Stories', hora: '12h00', pilar: 'Engajamento', desc: 'Stories com enquete ou quiz sobre NR-1' },\n  4: { formato: '📊 Carrossel', hora: '18h00', pilar: 'Solução', desc: 'Carrossel checklist ou erros comuns' },\n  5: { formato: '🎬 Reels', hora: '7h30', pilar: 'Autoridade', desc: 'Reels com Guilherme — autoridade e solução' },\n  6: { formato: '📷 Feed Foto', hora: '10h00', pilar: 'Autoridade', desc: 'Foto + quote empresarial (navy/dourado)' }\n};\n\nconst postagem = agenda[diaSemana];\nconst nomesDia = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];\nconst nomeAmanha = nomesDia[diaSemana];\nconst dataStr = amanha.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });\n\nif (!postagem) {\n  // Domingo — lembrete leve\n  const msg = `📲 AMANHÃ É DOMINGO (${dataStr})\\n\\nNenhuma postagem obrigatória.\\n✅ Opcional: Stories de bastidores (\"por trás do método\") às 16h.\\n\\nDescanse e prepare a semana! 💪`;\n  return [{ json: { mensagem: msg } }];\n}\n\nlet msg = `⏰ AMANHÃ: ${nomeAmanha} ${dataStr}\\n\\n`;\nmsg += `${postagem.formato} às ${postagem.hora}\\n`;\nmsg += `Pilar: ${postagem.pilar}\\n`;\nmsg += `Tema: ${postagem.desc}\\n\\n`;\n\n// Checklist por formato\nif (postagem.formato.includes('Carrossel')) {\n  msg += `✅ Checklist:\\n`;\n  msg += `□ Slides criados no Canva (5–8 slides)\\n`;\n  msg += `□ Slide 1: gancho forte\\n`;\n  msg += `□ Último slide: CTA (eBook ou Grupo WA)\\n`;\n  msg += `□ Legenda da postagem escrita\\n`;\n  msg += `□ Hashtags preparadas (máx 10)\\n`;\n} else if (postagem.formato.includes('Reels')) {\n  msg += `✅ Checklist:\\n`;\n  msg += `□ Roteiro gravado / filmado\\n`;\n  msg += `□ Editado no CapCut (30–60s)\\n`;\n  msg += `□ Legendas automáticas adicionadas\\n`;\n  msg += `□ Áudio/música ajustados\\n`;\n  msg += `□ Thumbnail definida\\n`;\n  msg += `□ Legenda + CTA escrita\\n`;\n} else if (postagem.formato.includes('Stories')) {\n  msg += `✅ Checklist:\\n`;\n  msg += `□ 3–5 stories planejados\\n`;\n  msg += `□ Enquete ou quiz criado\\n`;\n  msg += `□ Link do eBook/WA no último story\\n`;\n} else if (postagem.formato.includes('Foto')) {\n  msg += `✅ Checklist:\\n`;\n  msg += `□ Foto selecionada ou criada\\n`;\n  msg += `□ Arte finalizada (1080x1080 ou 1080x1350)\\n`;\n  msg += `□ Legenda com quote escrita\\n`;\n  msg += `□ CTA no final da legenda\\n`;\n}\n\nmsg += `\\n💡 Tudo pronto? Agende para ${postagem.hora} no Meta Business Suite.`;\n\nreturn [{ json: { mensagem: msg } }];"
+      },
+      "name": "Montar lembrete de amanhã",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $vars.TELEGRAM_CHAT_ID }}",
+        "text": "={{ $json.mensagem }}",
+        "additionalFields": {}
+      },
+      "name": "Enviar para Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [680, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    }
+  ],
+  "connections": {
+    "Todo dia 20h": { "main": [[{ "node": "Montar lembrete de amanhã", "type": "main", "index": 0 }]] },
+    "Montar lembrete de amanhã": { "main": [[{ "node": "Enviar para Telegram", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["empresa-protegida", "conteudo", "instagram"]
+}
