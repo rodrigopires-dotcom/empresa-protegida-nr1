@@ -10,3 +10,8 @@
 *.tmp
 *.bak
 *~
+
+# Credenciais — NUNCA commitar
+.env
+.env.local
+*.secret
