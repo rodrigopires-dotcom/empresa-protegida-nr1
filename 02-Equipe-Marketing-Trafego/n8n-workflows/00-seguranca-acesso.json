@@ -1,0 +1,44 @@
+{
+  "name": "NR1 · Segurança — Bloquear Acesso Não Autorizado",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": ["message"],
+        "additionalFields": {}
+      },
+      "name": "Telegram · Receber Mensagens",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verificar se o remetente é autorizado\nconst CHAT_ID_AUTORIZADO = 198613263;\nconst chatId = $input.first().json.message?.chat?.id;\nconst nome = $input.first().json.message?.from?.first_name || 'Desconhecido';\n\nif (chatId === CHAT_ID_AUTORIZADO) {\n  // Usuário autorizado — não fazer nada (outros workflows respondem)\n  return [];\n} else {\n  // Não autorizado — enviar aviso e bloquear\n  return [{ json: { chat_id: chatId, nome } }];\n}"
+      },
+      "name": "Verificar autorização",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.chat_id }}",
+        "text": "🔒 Acesso não autorizado. Este bot é privado.",
+        "additionalFields": {}
+      },
+      "name": "Bloquear — Enviar aviso",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [680, 300],
+      "credentials": { "telegramApi": { "name": "Telegram · Empresa Protegida" } }
+    }
+  ],
+  "connections": {
+    "Telegram · Receber Mensagens": { "main": [[{ "node": "Verificar autorização", "type": "main", "index": 0 }]] },
+    "Verificar autorização": { "main": [[{ "node": "Bloquear — Enviar aviso", "type": "main", "index": 0 }]] }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "tags": ["empresa-protegida", "seguranca"]
+}
