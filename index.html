@@ -738,24 +738,25 @@ section { padding: 96px 24px; }
 .garantia-box {
   max-width: 680px;
   margin: 0 auto;
-  background: rgba(255,255,255,.03);
-  border: 2px solid rgba(245,166,35,.2);
+  background: rgba(217,0,0,.05);
+  border: 2px solid rgba(217,0,0,.35);
   border-radius: 24px;
   padding: 56px 48px;
   position: relative;
   overflow: hidden;
   transition: border-color .3s, box-shadow .3s;
+  box-shadow: 0 0 80px rgba(217,0,0,.08), inset 0 0 40px rgba(217,0,0,.03);
 }
 .garantia-box:hover {
-  border-color: rgba(245,166,35,.4);
-  box-shadow: 0 0 60px rgba(245,166,35,.07);
+  border-color: rgba(217,0,0,.55);
+  box-shadow: 0 0 80px rgba(217,0,0,.14), inset 0 0 40px rgba(217,0,0,.05);
 }
 .garantia-box::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
 }
 .garantia-shield {
   font-size: 4rem;
@@ -768,8 +769,8 @@ section { padding: 96px 24px; }
   50% { transform: translateY(-10px); }
 }
 .garantia-title { font-size: var(--font-xl); font-weight: 900; margin-bottom: 16px; }
-.garantia-title em { color: var(--amber); font-style: normal; }
-.garantia-text { font-size: var(--font-base); color: rgba(255,255,255,.7); line-height: 1.7; }
+.garantia-title em { color: var(--red); font-style: normal; }
+.garantia-text { font-size: var(--font-base); color: rgba(255,255,255,.75); line-height: 1.7; }
 
 /* ─── OFERTA ───────────────────────────────────────────────── */
 #oferta {
@@ -1060,9 +1061,8 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
         NR-1 2025 · Vigência imediata
       </div>
       <h1 class="hero-title reveal">
-        Sua empresa está<br>
-        <span class="highlight">protegida</span><br>
-        pela NR-1?
+        Seu negócio<br>sobreviveria a uma<br>
+        <span class="highlight">fiscalização</span><br>hoje?
       </h1>
       <p class="hero-sub reveal">
         O fiscal não avisa antes de chegar. Descubra como documentar sua empresa em <strong>3 passos simples</strong> — <em>sem juridiquês, sem consultor caro.</em>
@@ -1324,9 +1324,11 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
         <h2 class="autoridade-name reveal">Guilherme Avelar</h2>
         <p class="autoridade-role reveal">Empresário | Especialista em Gestão de Pessoas | Master Coach & PNL</p>
         <p class="autoridade-bio reveal">
-          Não sou psicólogo. Não sou técnico de SST. Sou empresário — e quando a NR-1 foi atualizada, fui direto pesquisar o que isso significava para quem tem funcionário CLT e precisa manter a empresa funcionando.
+          Já acompanhei empresários que levaram autuação por não ter a documentação certa quando o fiscal chegou. A empresa funcionava normalmente — mas o papel não estava em ordem.
           <br><br>
-          O que descobri: a maioria dos materiais sobre NR-1 é escrita para especialistas. O empresário fica perdido. Por isso criei o Empresa Protegida NR-1 — da perspectiva de quem gere a empresa, não da perspectiva técnica.
+          Quando a NR-1 foi atualizada em 2024, fui direto estudar o que mudou. O que descobri: quase todo o material existente é escrito para especialistas em SST, não para quem gere a empresa. O empresário fica perdido no juridiquês enquanto o prazo corre.
+          <br><br>
+          Por isso criei o Empresa Protegida NR-1 — da perspectiva de quem tem CLT, não da perspectiva técnica.
         </p>
         <div class="credenciais reveal">
           <div class="credencial"><span class="credencial-dot"></span> Master Coach & PNL</div>
@@ -1371,7 +1373,7 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
       </div>
 
       <div class="price-block">
-        <div class="price-from">De R$600 em consultoria</div>
+        <div class="price-from">Uma consultoria especializada cobra R$2.500 por isso</div>
         <div class="price-main"><span>R$</span>47</div>
         <div class="price-sub">Pagamento único · Acesso vitalício</div>
       </div>
