@@ -3,23 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Empresa Protegida NR-1 — Proteja Sua Empresa da Fiscalização</title>
-<meta name="description" content="Fiscalização punitiva ativa desde 26/05/2026. Descubra como documentar os riscos psicossociais da sua empresa em 3 passos — sem juridiquês, sem consultor caro.">
-
-<!-- Open Graph / Social Sharing -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://rodrigopires-dotcom.github.io/empresa-protegida-nr1/">
-<meta property="og:title" content="Empresa Protegida NR-1 — Proteja Sua Empresa da Fiscalização">
-<meta property="og:description" content="Fiscalização punitiva ativa desde 26/05/2026. Descubra como documentar os riscos psicossociais da sua empresa em 3 passos — sem juridiquês, sem consultor caro.">
-<meta property="og:image" content="https://rodrigopires-dotcom.github.io/empresa-protegida-nr1/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Empresa Protegida NR-1">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Empresa Protegida NR-1 — Proteja Sua Empresa da Fiscalização">
-<meta name="twitter:description" content="Fiscalização punitiva ativa desde 26/05/2026. Descubra como documentar os riscos psicossociais da sua empresa em 3 passos — sem juridiquês, sem consultor caro.">
-<meta name="twitter:image" content="https://rodrigopires-dotcom.github.io/empresa-protegida-nr1/og-image.jpg">
+<title>Empresa Protegida NR-1 — Entenda o que Mudou e Prepare sua Empresa</title>
+<meta name="description" content="Todo mundo fala de NR-1, mas quase ninguém explica de forma simples o que realmente mudou. Descubra o que a norma exige e como sua empresa pode se preparar de forma estratégica — sem juridiquês.">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -677,23 +662,18 @@ section { padding: 96px 24px; }
 @media (max-width: 768px) { .autoridade-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; } }
 .autoridade-avatar-wrap { position: relative; }
 .autoridade-avatar {
-  width: 260px; height: 260px;
+  width: 220px; height: 220px;
   border-radius: 24px;
-  background: #111;
+  background: linear-gradient(135deg, rgba(217,0,0,.1), rgba(20,20,20,.7));
   border: 1px solid rgba(217,0,0,.22);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 5rem;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(217,0,0,.15);
-}
-.autoridade-foto {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
 }
 .autoridade-avatar::before {
   content: '';
@@ -738,25 +718,24 @@ section { padding: 96px 24px; }
 .garantia-box {
   max-width: 680px;
   margin: 0 auto;
-  background: rgba(217,0,0,.05);
-  border: 2px solid rgba(217,0,0,.35);
+  background: rgba(255,255,255,.03);
+  border: 2px solid rgba(245,166,35,.2);
   border-radius: 24px;
   padding: 56px 48px;
   position: relative;
   overflow: hidden;
   transition: border-color .3s, box-shadow .3s;
-  box-shadow: 0 0 80px rgba(217,0,0,.08), inset 0 0 40px rgba(217,0,0,.03);
 }
 .garantia-box:hover {
-  border-color: rgba(217,0,0,.55);
-  box-shadow: 0 0 80px rgba(217,0,0,.14), inset 0 0 40px rgba(217,0,0,.05);
+  border-color: rgba(245,166,35,.4);
+  box-shadow: 0 0 60px rgba(245,166,35,.07);
 }
 .garantia-box::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
 }
 .garantia-shield {
   font-size: 4rem;
@@ -769,8 +748,8 @@ section { padding: 96px 24px; }
   50% { transform: translateY(-10px); }
 }
 .garantia-title { font-size: var(--font-xl); font-weight: 900; margin-bottom: 16px; }
-.garantia-title em { color: var(--red); font-style: normal; }
-.garantia-text { font-size: var(--font-base); color: rgba(255,255,255,.75); line-height: 1.7; }
+.garantia-title em { color: var(--amber); font-style: normal; }
+.garantia-text { font-size: var(--font-base); color: rgba(255,255,255,.7); line-height: 1.7; }
 
 /* ─── OFERTA ───────────────────────────────────────────────── */
 #oferta {
@@ -1019,24 +998,6 @@ footer {
   }
 }
 </style>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1500769621039045');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -1046,7 +1007,7 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky-cta">
   <p class="sticky-cta-text"><strong>Empresa Protegida NR-1</strong> — acesso imediato por apenas R$47</p>
-  <a href="#oferta" class="sticky-cta-btn">Proteger Minha Empresa →</a>
+  <a href="#oferta" class="sticky-cta-btn">Quero Entender a NR-1 →</a>
 </div>
 
 <!-- ═══════════════════════════════ HERO ══════════════════════ -->
@@ -1058,18 +1019,19 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
     <div class="hero-left">
       <div class="hero-badge reveal">
         <span class="hero-badge-dot"></span>
-        Fiscalização punitiva ativa desde 26/05/2026
+        NR-1 · Entenda o que realmente mudou
       </div>
       <h1 class="hero-title reveal">
-        Seu negócio<br>sobreviveria a uma<br>
-        <span class="highlight">fiscalização</span><br>hoje?
+        Você sabe o que a NR-1<br>
+        <span class="highlight">realmente exige</span><br>
+        da sua empresa?
       </h1>
       <p class="hero-sub reveal">
-        O fiscal não avisa antes de chegar. Descubra como documentar sua empresa em <strong>3 passos simples</strong> — <em>sem juridiquês, sem consultor caro.</em>
+        Todo mundo está falando sobre NR-1, mas quase ninguém consegue explicar de forma simples o que realmente mudou. Em menos de 1 hora, este guia vai te dar <strong>clareza sobre o que a norma exige</strong> — <em>sem juridiquês, sem consultor caro.</em>
       </p>
       <div class="hero-cta-group reveal">
         <a href="#oferta" class="btn-primary">
-          Quero Proteger Minha Empresa
+          Quero Entender e Me Preparar
           <span class="btn-primary-arrow">→</span>
         </a>
         <div class="hero-trust">
@@ -1091,7 +1053,7 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
           </div>
           <div class="vsl-label">
             <strong>Assista ao vídeo</strong>
-            Guilherme Avelar explica em menos de 5 minutos por que sua empresa precisa agir agora
+            Guilherme Avelar explica em menos de 5 minutos o que realmente mudou com a NR-1
           </div>
         </div>
       </div>
@@ -1102,16 +1064,16 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
   <div class="hero-proof">
     <div class="hero-proof-inner">
       <div class="proof-item">
-        <span class="proof-icon">⚠️</span>
-        <span><strong>70%</strong> das empresas com CLT não têm documentação em ordem</span>
+        <span class="proof-icon">📊</span>
+        <span>A NR-1 trouxe <strong>novos desafios</strong> para a gestão empresarial</span>
       </div>
       <div class="proof-item">
-        <span class="proof-icon">📋</span>
-        <span>Fiscalização punitiva ativa desde 26/05/2026 — sua empresa precisa comprovar a gestão de <strong>riscos psicossociais</strong></span>
+        <span class="proof-icon">🎯</span>
+        <span>Fatores psicossociais agora fazem parte da <strong>realidade das empresas</strong></span>
       </div>
       <div class="proof-item">
-        <span class="proof-icon">🛡️</span>
-        <span><strong>Método completo</strong> em linguagem de empresário</span>
+        <span class="proof-icon">💡</span>
+        <span><strong>Clareza estratégica</strong> em linguagem de empresário</span>
       </div>
     </div>
   </div>
@@ -1120,29 +1082,29 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
 <!-- ═══════════════════════════════ PROBLEMA ══════════════════ -->
 <section id="problema">
   <div class="container">
-    <div class="section-tag problema-tag reveal">O Problema</div>
+    <div class="section-tag problema-tag reveal">O Desafio</div>
     <h2 class="section-title reveal">
-      A norma mudou.<br>A maioria das empresas<br>ainda não sabe.
+      A NR-1 trouxe novidades.<br>A maioria das empresas<br>não sabe por onde começar.
     </h2>
     <p class="section-sub reveal" style="color:rgba(255,255,255,.65);max-width:640px">
-      Desde a atualização, a NR-1 passou a exigir que toda empresa com funcionários CLT documente riscos psicossociais no PGR. Quem não tem, está sujeito a multa mesmo sem ter feito nada de "errado".
+      Desde a atualização, a NR-1 passou a incluir fatores psicossociais no contexto de gestão de riscos. O principal problema não é a norma — é a quantidade de informações desencontradas que surgiram desde então.
     </p>
 
     <div class="problema-grid">
       <div class="problema-card reveal">
         <div class="problema-num">70%</div>
-        <h3>Das empresas desprotegidas</h3>
-        <p>Sete em cada dez empresas com CLT não possuem a documentação NR-1 atualizada com os novos requisitos de 2025.</p>
+        <h3>Das empresas sem clareza</h3>
+        <p>Sete em cada dez empresas ainda não compreenderam completamente o que mudou na NR-1 e o que isso significa para a gestão do dia a dia.</p>
       </div>
       <div class="problema-card reveal">
-        <div class="problema-num">R$6k+</div>
-        <h3>De multa por infração</h3>
-        <p>O valor mínimo de auto de infração da NR-1. Em casos com múltiplas irregularidades, o acúmulo pode passar de R$20 mil.</p>
+        <div class="problema-num">3+</div>
+        <h3>Interpretações diferentes</h3>
+        <p>Enquanto alguns dizem que toda empresa precisa agir imediatamente, outros afirmam que nada mudou. No meio dessa confusão, o empresário fica sem saber o que fazer.</p>
       </div>
       <div class="problema-card reveal">
         <div class="problema-num">0</div>
-        <h3>Avisos antes da fiscalização</h3>
-        <p>O fiscal não agenda visita. Quando chega, precisa ver a documentação na hora. Sem papel, sem prova — independente do que você fez.</p>
+        <h3>Materiais em linguagem de gestão</h3>
+        <p>A maioria dos conteúdos sobre NR-1 é escrita para especialistas técnicos. O empresário — que é quem precisa agir — fica perdido entre laudos e juridiquês.</p>
       </div>
     </div>
   </div>
@@ -1153,41 +1115,41 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
   <div class="container">
     <div class="agitacao-inner">
       <div>
-        <div class="section-tag agitacao-tag reveal">O Risco Real</div>
+        <div class="section-tag agitacao-tag reveal">O Cenário Atual</div>
         <h2 class="section-title agitacao-title reveal">
-          O que acontece quando o fiscal chega e <em>você não tem nada</em> para mostrar
+          O problema não é a norma. É a <em>confusão</em> que veio depois dela.
         </h2>
         <p class="section-sub agitacao-sub reveal">
-          Não importa se você cuidou dos seus funcionários. O que importa é o que está documentado. E o que não está documentado não existe para a lei.
+          Empresários, gestores, profissionais de RH e líderes estão tentando entender: o que realmente mudou? O que minha empresa precisa fazer? Onde termina a obrigação legal e começa a boa prática de gestão?
         </p>
       </div>
       <div class="consequence-list">
         <div class="consequence-item reveal">
-          <div class="consequence-icon">💸</div>
+          <div class="consequence-icon">❓</div>
           <div class="consequence-text">
-            <h4>Auto de infração imediato</h4>
-            <p>A multa pode ser aplicada na mesma hora da vistoria, sem prazo para regularização prévia.</p>
+            <h4>Decisões sem base sólida</h4>
+            <p>Sem entender o que a norma realmente exige, empresas tomam decisões no escuro — gastando onde não precisam ou ignorando o que importa.</p>
           </div>
         </div>
         <div class="consequence-item reveal">
-          <div class="consequence-icon">⛔</div>
+          <div class="consequence-icon">🔀</div>
           <div class="consequence-text">
-            <h4>Interdição da atividade</h4>
-            <p>Em situações de risco grave, o fiscal pode interditar o setor ou a empresa inteira até regularização.</p>
+            <h4>Informações contraditórias no mercado</h4>
+            <p>Cada especialista diz uma coisa diferente. Sem uma visão clara e organizada, é impossível saber em quem confiar e por onde começar.</p>
           </div>
         </div>
         <div class="consequence-item reveal">
-          <div class="consequence-icon">📢</div>
+          <div class="consequence-icon">📂</div>
           <div class="consequence-text">
-            <h4>Exposição e reputação</h4>
-            <p>Autos de infração são registros públicos. Colaboradores, clientes e parceiros podem ter acesso.</p>
+            <h4>Registros desorganizados ou inexistentes</h4>
+            <p>Sem clareza sobre o que documentar, a empresa fica com registros fragmentados — o que cria incerteza e vulnerabilidade desnecessárias.</p>
           </div>
         </div>
         <div class="consequence-item reveal">
           <div class="consequence-icon">⚖️</div>
           <div class="consequence-text">
-            <h4>Passivo trabalhista</h4>
-            <p>A ausência de documentação de riscos psicossociais fragiliza a empresa em processos trabalhistas por saúde mental.</p>
+            <h4>Exposição em questões trabalhistas</h4>
+            <p>A ausência de registros sobre riscos psicossociais fragiliza a empresa diante de questionamentos relacionados a saúde e bem-estar no trabalho.</p>
           </div>
         </div>
       </div>
@@ -1201,10 +1163,10 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
     <div style="text-align:center;max-width:680px;margin:0 auto">
       <div class="section-tag metodo-tag reveal">O Método</div>
       <h2 class="section-title metodo-title reveal">
-        Três passos para sair de <em>vulnerável</em> para protegido
+        Três passos para sair da <em>incerteza</em> para a clareza
       </h2>
       <p class="section-sub metodo-sub reveal">
-        O Empresa Protegida NR-1 foi criado por um empresário para empresários. Sem linguagem técnica, sem processo complicado.
+        O Empresa Protegida NR-1 foi desenvolvido para traduzir um tema complexo para a realidade prática das empresas. Sem linguagem técnica, sem processo complicado.
       </p>
     </div>
 
@@ -1215,17 +1177,17 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
         </div>
         <div class="step-icon">🔍</div>
         <div class="step-name">RAIO-X</div>
-        <div class="step-tag">Entenda sua situação</div>
-        <p class="step-desc">Mapeie exatamente o que a NR-1 exige para a sua empresa e o que precisa estar documentado. Você vai saber com precisão onde está e o que falta.</p>
+        <div class="step-tag">Entenda o que mudou</div>
+        <p class="step-desc">Compreenda o que a NR-1 exige no contexto da sua empresa e o que precisa estar organizado. Você sai sabendo com clareza o que é obrigatório e o que é boa prática de gestão.</p>
       </div>
       <div class="step-card reveal">
         <div class="step-num-wrap">
           <div class="step-num">2</div>
         </div>
         <div class="step-icon">🛡️</div>
-        <div class="step-name">BLINDAGEM</div>
-        <div class="step-tag">Organize as evidências</div>
-        <p class="step-desc">Organize e produza a documentação que prova conformidade. PGR, registros de treinamento, comunicados, ações corretivas — tudo no lugar certo.</p>
+        <div class="step-name">ORGANIZAÇÃO</div>
+        <div class="step-tag">Estruture seus registros</div>
+        <p class="step-desc">Organize e produza os registros e documentos importantes para a gestão dos riscos psicossociais. Sem linguagem técnica — apenas o que faz sentido para quem administra um negócio.</p>
       </div>
       <div class="step-card reveal">
         <div class="step-num-wrap">
@@ -1234,7 +1196,7 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
         <div class="step-icon">⚔️</div>
         <div class="step-name">ESCUDO</div>
         <div class="step-tag">Mantenha atualizado</div>
-        <p class="step-desc">Implemente a rotina mínima para manter os registros ativos. Quando o fiscal chegar, você tem tudo para mostrar — e pode recebê-lo sem medo.</p>
+        <p class="step-desc">Implemente a rotina mínima para manter os registros organizados e acessíveis. Quando precisar, você tem tudo em ordem — e pode responder com clareza sobre o que sua empresa faz.</p>
       </div>
     </div>
   </div>
@@ -1247,10 +1209,10 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
       <div>
         <div class="section-tag conteudo-tag reveal">O que você recebe</div>
         <h2 class="section-title conteudo-title reveal">
-          Tudo o que você precisa para proteger sua empresa — em um guia direto
+          Tudo o que você precisa para entender a NR-1 e começar a se preparar
         </h2>
         <p class="section-sub conteudo-sub reveal">
-          Escrito da perspectiva de quem gere a empresa, não da perspectiva técnica. Você vai entender o que fazer e como fazer.
+          Desenvolvido com visão de gestão empresarial e embasamento técnico. Você vai entender o que mudou, o que fazer e como organizar sua empresa de forma estratégica.
         </p>
         <div class="conteudo-value reveal">
           <div>
@@ -1265,43 +1227,43 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
-            <h4>O que a NR-1 2025 realmente exige</h4>
-            <p>Tradução em linguagem de empresário: o que mudou, o que é obrigatório, o que o fiscal verifica.</p>
+            <h4>O que a NR-1 realmente mudou</h4>
+            <p>Tradução em linguagem de empresário: o que mudou, o que é obrigatório e o que é boa prática de gestão — sem confundir os dois.</p>
           </div>
         </div>
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
             <h4>Mapeamento de riscos psicossociais</h4>
-            <p>Como identificar e documentar os 5 fatores exigidos — sem precisar contratar um especialista.</p>
+            <p>Como identificar os 5 fatores psicossociais e entender como eles se manifestam no dia a dia da sua empresa.</p>
           </div>
         </div>
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
-            <h4>Modelo de PGR atualizado</h4>
-            <p>Estrutura do Programa de Gerenciamento de Riscos com os campos obrigatórios da nova versão.</p>
+            <h4>Estrutura do PGR atualizado</h4>
+            <p>O que precisa estar no Programa de Gerenciamento de Riscos e como organizar os campos relacionados à nova visão da norma.</p>
           </div>
         </div>
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
-            <h4>Checklist do fiscal</h4>
-            <p>Os documentos exatos que o auditor pede em uma fiscalização NR-1 — organizados por prioridade.</p>
+            <h4>Checklist de organização e registros</h4>
+            <p>Os documentos e evidências importantes para a gestão dos riscos psicossociais — organizados por categoria e prioridade.</p>
           </div>
         </div>
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
             <h4>Rotina de manutenção (método Escudo)</h4>
-            <p>Como manter a documentação ativa com o mínimo de esforço — sem depender de consultoria contínua.</p>
+            <p>Como manter os registros organizados e acessíveis com o mínimo de esforço — sem depender de consultoria contínua.</p>
           </div>
         </div>
         <div class="module-item reveal">
           <div class="module-check">✓</div>
           <div class="module-text">
-            <h4>Guia de treinamentos documentáveis</h4>
-            <p>Como registrar e comprovar os treinamentos obrigatórios exigidos pela norma atualizada.</p>
+            <h4>Guia de treinamentos e comunicações</h4>
+            <p>Como registrar e organizar os treinamentos e comunicações internas relevantes para a gestão de pessoas.</p>
           </div>
         </div>
       </div>
@@ -1315,26 +1277,24 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
     <div class="autoridade-inner">
       <div class="autoridade-avatar-wrap reveal scale-in">
         <div class="autoridade-avatar">
-          <img src="guilherme-foto.jpg" alt="Guilherme Avelar" class="autoridade-foto">
+          👤
           <div class="avatar-badge">🛡️ Empresa Protegida</div>
         </div>
       </div>
       <div>
         <div class="section-tag autoridade-tag reveal">Quem criou</div>
         <h2 class="autoridade-name reveal">Guilherme Avelar</h2>
-        <p class="autoridade-role reveal">Empresário | Especialista em Gestão de Pessoas | Master Coach & PNL</p>
+        <p class="autoridade-role reveal">Graduado em Gestão de RH · Pós-graduado em Gestão Empresarial · Consultor Empresarial</p>
         <p class="autoridade-bio reveal">
-          Já acompanhei empresários que levaram autuação por não ter a documentação certa quando o fiscal chegou. A empresa funcionava normalmente — mas o papel não estava em ordem.
+          Sou graduado em Gestão de Recursos Humanos, pós-graduado em Gestão Empresarial e Planejamento Tributário, especialista em desenvolvimento humano, liderança e gestão de pessoas. Atuo há anos apoiando empresas na estruturação de equipes, desenvolvimento de lideranças e melhoria da performance organizacional.
           <br><br>
-          Quando a NR-1 foi atualizada em 2024, fui direto estudar o que mudou. O que descobri: quase todo o material existente é escrito para especialistas em SST, não para quem gere a empresa. O empresário fica perdido no juridiquês enquanto o prazo corre.
-          <br><br>
-          Por isso criei o Empresa Protegida NR-1 — da perspectiva de quem tem CLT, não da perspectiva técnica.
+          Este material foi desenvolvido considerando tanto a visão da gestão empresarial quanto os aspectos técnicos relacionados à saúde e segurança do trabalho. O objetivo não é transformar você em especialista na norma — é traduzir um tema complexo para a realidade prática das empresas.
         </p>
         <div class="credenciais reveal">
-          <div class="credencial"><span class="credencial-dot"></span> Master Coach & PNL</div>
-          <div class="credencial"><span class="credencial-dot"></span> Inteligência Tributária</div>
-          <div class="credencial"><span class="credencial-dot"></span> Gestão de Pessoas</div>
-          <div class="credencial"><span class="credencial-dot"></span> Empresário com CLT</div>
+          <div class="credencial"><span class="credencial-dot"></span> Graduado em Gestão de RH</div>
+          <div class="credencial"><span class="credencial-dot"></span> Pós-graduado em Gestão Empresarial</div>
+          <div class="credencial"><span class="credencial-dot"></span> Especialista em Desenvolvimento Humano</div>
+          <div class="credencial"><span class="credencial-dot"></span> Consultor Empresarial</div>
         </div>
       </div>
     </div>
@@ -1359,17 +1319,16 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
   <div class="container" style="text-align:center;max-width:680px">
     <div class="section-tag oferta-tag reveal">Acesso Imediato</div>
     <h2 class="section-title reveal">
-      Proteja sua empresa<br>agora por apenas
+      Tenha clareza sobre a NR-1<br>em menos de uma hora
     </h2>
 
     <div class="oferta-box reveal scale-in">
-      <p style="font-size:.85rem;color:rgba(255,255,255,.5);margin-bottom:16px;line-height:1.5;">A lei não exige ferramenta específica. Exige que você comprove: identificação dos riscos · avaliação · registro · plano de ação. O guia entrega exatamente isso.</p>
       <div class="oferta-includes">
         <div class="oferta-item"><span class="oferta-item-icon">✓</span> Guia completo Empresa Protegida NR-1 (PDF)</div>
-        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Checklist do fiscal — documentos prioritários</div>
-        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Modelo de PGR 2025 atualizado</div>
-        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Método Raio-X · Blindagem · Escudo</div>
-        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Rotina de manutenção sem consultoria</div>
+        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Checklist de organização e registros importantes</div>
+        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Estrutura do PGR atualizado com nova visão da norma</div>
+        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Método Raio-X · Organização · Escudo</div>
+        <div class="oferta-item"><span class="oferta-item-icon">✓</span> Rotina de manutenção sem consultoria contínua</div>
         <div class="oferta-item"><span class="oferta-item-icon">✓</span> Acesso imediato após pagamento</div>
       </div>
 
@@ -1380,7 +1339,7 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
       </div>
 
       <a href="https://pay.hotmart.com/R106232475F?off=j4ln2cr7" class="btn-oferta">
-        🛡️ Proteger Minha Empresa Agora
+        🎯 Quero Ter Acesso Imediato
       </a>
       <div class="oferta-safe">
         🔒 Pagamento 100% seguro via Hotmart · Garantia de 7 dias
@@ -1399,47 +1358,47 @@ src="https://www.facebook.com/tr?id=1500769621039045&ev=PageView&noscript=1"
     <div class="faq-list">
       <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Minha empresa tem 3 funcionários. Preciso cumprir a NR-1?
+          Minha empresa é pequena — a NR-1 se aplica a mim?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Sim. A NR-1 se aplica a toda empresa com pelo menos um funcionário CLT, independente do tamanho ou setor. Não existe mínimo de funcionários para a obrigatoriedade.</div>
+          <div class="faq-answer-inner">Sim. A NR-1 se aplica a toda empresa com colaboradores, independente do tamanho ou setor. Não existe mínimo de funcionários — e a norma não faz distinção por porte ou segmento.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Preciso contratar um técnico de SST para isso?
+          Preciso contratar um técnico de SST ou consultor?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Para a documentação básica, não. O guia mostra o que você mesmo pode organizar e o que realmente exige um profissional habilitado — para você não gastar à toa nem deixar de fazer o que é necessário.</div>
+          <div class="faq-answer-inner">Não necessariamente para começar. O guia mostra o que você mesmo pode entender e organizar e o que pode exigir um profissional especializado — para você tomar decisões informadas, sem gastar onde não precisa.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Quanto tempo leva para implementar?
+          Quanto tempo leva para aplicar o que está no guia?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Depende do tamanho da sua operação. Para empresas pequenas (até 20 funcionários), o Raio-X e a estrutura básica de Blindagem podem ser feitos em um fim de semana dedicado. O guia prioriza o que é urgente primeiro.</div>
+          <div class="faq-answer-inner">A leitura leva menos de 1 hora. Para começar a organizar os registros, empresas menores costumam dedicar um fim de semana para estruturar o essencial. O guia indica o que priorizar.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
-          O guia serve para qualquer setor?
+          O guia serve para qualquer setor de atividade?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">Sim. O foco é nos requisitos universais da NR-1 que se aplicam a todos os setores. Os exemplos usam situações do dia a dia de PMEs brasileiras, mas os princípios e os documentos são válidos para qualquer atividade.</div>
+          <div class="faq-answer-inner">Sim. O conteúdo trata dos princípios e conceitos da NR-1 que se aplicam a todos os setores. Os exemplos usam situações do dia a dia de PMEs brasileiras, mas a lógica de gestão é válida para qualquer tipo de empresa.</div>
         </div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-question" onclick="toggleFaq(this)">
-          Ouvi que tem uma liminar proibindo as multas. Isso me protege?
+          Ouvi falar em liminares e discussões sobre a aplicação da NR-1. Preciso me preocupar agora?
           <span class="faq-chevron">▼</span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">A liminar beneficia apenas as empresas ou grupos que participaram daquela ação judicial específica — ela não cancela a NR-1 para todo o Brasil. Para a grande maioria das empresas com CLT, a fiscalização punitiva está ativa desde 26/05/2026. O auditor pode exigir comprovação documental de que sua empresa identificou, avaliou e registrou os riscos psicossociais. Sem esse registro, não há proteção.</div>
+          <div class="faq-answer-inner">Existem discussões jurídicas e interpretações divergentes sobre a aplicação prática de alguns aspectos da norma — e é exatamente por isso que clareza importa. O foco deste guia não é a fiscalização: é ajudar sua empresa a compreender o que mudou e organizar suas práticas de gestão de pessoas. Empresas que entendem a norma e têm seus registros organizados estão mais preparadas para qualquer cenário, independente de mudanças no contexto jurídico.</div>
         </div>
       </div>
       <div class="faq-item reveal">
