@@ -32,7 +32,7 @@ O usuário fala **só com você**. Seu trabalho é:
 - **Tema:** riscos psicossociais da **NR-1** (obrigação trabalhista quente no Brasil, fiscalização punitiva desde **26/05/2026**, Portaria MTE 765/2025).
 - **Público:** pequenas e médias empresas (PMEs) com CLT.
 - **Modelo (escada de valor):** eBook R$27 (isca) → Treinamento em vídeo R$297–497 → Consultoria R$2,5k–8k + recorrência R$500–1,5k/mês.
-- **Método:** *Método Empresa Protegida™* — 3 fases: **RAIO-X → BLINDAGEM → ESCUDO**.
+- **Método:** *Método Empresa Protegida™* — 3 fases: **RAIO-X → ORGANIZAÇÃO → ESCUDO**.
 - **Rosto/autoridade:** Guilherme Avelar (@guiavelaroficial). Autoridade central = **emprestada** de profissional habilitado em SST (parceria garantida).
 - **Posicionamento:** palavra a possuir = **PROTEÇÃO**; Visual Hammer = **ESCUDO 🛡️**; nunca prometer "zero multa" — garantias sempre no **entregável**.
 

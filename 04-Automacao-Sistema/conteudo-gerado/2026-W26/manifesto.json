@@ -1,0 +1,230 @@
+{
+  "semana": "2026-W26",
+  "tema": "Clareza em Meio à Confusão",
+  "posicionamento": "Vender CLAREZA, não conformidade. O empresário compra porque está perdido — não porque tem medo de multa.",
+  "nota_reposicionamento": "Atualizado em 22/06/2026 seguindo orientação do Guilherme Avelar: remover ênfase em fiscalização/multas, fortalecer credenciais, ângulo de clareza estratégica.",
+  "semente_narrativa_w27": "Agora que você entende o que mudou, vamos falar sobre quem já começou a se preparar — e o que eles fizeram de diferente.",
+  "posts": [
+    {
+      "id": 1,
+      "dia": "ter",
+      "horario": "12:00",
+      "pilar": "Dado",
+      "formato": "post_simples",
+      "status": "aguardando_aprovacao",
+      "headline": "70% das empresas ainda não têm clareza sobre o que mudou na NR-1.",
+      "subtitulo": "E o problema não é falta de boa vontade.\n\nÉ o excesso de informações contraditórias que surgiram desde então.\n\nAlguns dizem que toda empresa precisa agir imediatamente.\nOutros dizem que nada mudou.\nNo meio dessa confusão, o empresário fica sem saber o que fazer.\n\nA NR-1 passou a incluir fatores psicossociais na gestão de riscos:\n✅ Sobrecarga de trabalho\n✅ Pressão excessiva de metas\n✅ Clima organizacional\n✅ Relações interpessoais no trabalho\n\nEntender o que isso significa na prática — e o que a empresa precisa organizar — é o primeiro passo.\n\nComenta NR1 👇 que eu te envio o guia completo no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "nota_visual": "Fundo navy #1B2A5E, texto branco bold, destaque âmbar #F5A623 em '70%', ícone de lupa ou interrogação"
+    },
+    {
+      "id": 2,
+      "dia": "ter",
+      "horario": "19:00",
+      "pilar": "Carrossel",
+      "formato": "carrossel",
+      "status": "aguardando_aprovacao",
+      "headline": "O que a NR-1 realmente mudou — 5 pontos que todo empresário precisa entender",
+      "subtitulo": "Não é sobre entrar em pânico.\n\nÉ sobre entender o que realmente mudou e o que isso significa para a gestão da sua empresa.\n\nArrasta para ver os 5 pontos principais ⟶\n\nComenta NR1 👇 que eu te envio o guia no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "slides": [],
+      "slides_copy": [
+        {
+          "slide": 1,
+          "tipo": "capa",
+          "texto": "O que a NR-1 realmente mudou — 5 pontos essenciais",
+          "nota_visual": "Fundo navy #1B2A5E + texto branco bold + ícone de clareza/luz"
+        },
+        {
+          "slide": 2,
+          "tipo": "conteudo",
+          "texto": "#1 Os fatores psicossociais entraram no PGR\nSobrecarga, pressão excessiva, clima organizacional e relações interpessoais agora fazem parte do contexto de gestão de riscos.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número ghost azul, ícone de pessoas/gestão"
+        },
+        {
+          "slide": 3,
+          "tipo": "conteudo",
+          "texto": "#2 A norma exige evidências, não só intenção\nNão basta fazer — precisa estar organizado e registrado. Ação sem registro não existe para fins de gestão.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número ghost azul, ícone de documento"
+        },
+        {
+          "slide": 4,
+          "tipo": "conteudo",
+          "texto": "#3 Existe uma linha entre obrigação legal e boa prática\nEntender essa diferença é o que permite tomar decisões informadas — sem exagerar nem minimizar.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número ghost azul, ícone de balança"
+        },
+        {
+          "slide": 5,
+          "tipo": "conteudo",
+          "texto": "#4 A confusão do mercado é o maior obstáculo\nEspecialistas diferentes dizem coisas diferentes. Quem não tem clareza acaba paralisado ou reagindo no susto.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número ghost azul, ícone de interrogação"
+        },
+        {
+          "slide": 6,
+          "tipo": "conteudo",
+          "texto": "#5 Clareza é uma vantagem competitiva\nEmpresas que entendem o que mudou tomam decisões melhores — na gestão de pessoas, nos riscos e nos recursos.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número ghost azul, ícone de alvo"
+        },
+        {
+          "slide": 7,
+          "tipo": "cta",
+          "texto": "Comenta NR1 👇\nque eu te envio o guia no direct.\nDe graça.",
+          "nota_visual": "Fundo navy #1B2A5E + botão âmbar #F5A623 + badge eBook R$47"
+        }
+      ],
+      "nota": "CARROSSEL — 7 slides seguindo novo posicionamento de clareza"
+    },
+    {
+      "id": 3,
+      "dia": "qua",
+      "horario": "18:00",
+      "pilar": "Quote",
+      "formato": "post_simples",
+      "status": "aguardando_aprovacao",
+      "headline": "\"O maior risco não é a norma. É tomar decisões sem entender o que ela realmente exige.\"",
+      "subtitulo": "A empresa que tem clareza sobre o que mudou — e organiza sua gestão de pessoas em consequência — está em posição muito melhor do que a que reage no susto.\n\nA NR-1 não é sobre papelório.\nÉ sobre gestão de pessoas.\n\nE gestão de pessoas começa com entender o que está em jogo.\n\nComenta NR1 👇 que eu te envio o guia completo no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "nota_visual": "Fundo navy #1B2A5E, texto branco, frase em aspas em destaque âmbar #F5A623, layout quote card"
+    },
+    {
+      "id": 4,
+      "dia": "qui",
+      "horario": "12:00",
+      "pilar": "Mito",
+      "formato": "post_simples",
+      "status": "aguardando_aprovacao",
+      "headline": "\"A NR-1 é coisa só para empresa grande ou de setor de risco.\"",
+      "subtitulo": "Esse é um dos equívocos mais comuns sobre o tema.\n\nA norma não faz distinção por porte ou setor.\n\nMas antes de entrar em pânico — vale entender o que ela realmente exige.\n\nPorque existe uma diferença importante entre:\n❌ Obrigação legal com requisito específico\n✅ Boa prática de gestão que a norma também incentiva\n\nMisturar os dois é o que paralisa o empresário.\n\nClaro é melhor do que assustado.\n\nComenta NR1 👇 que eu te envio o guia completo no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "nota_visual": "Fundo navy #1B2A5E, mito em destaque vermelho, realidade em âmbar, layout mito vs realidade"
+    },
+    {
+      "id": 5,
+      "dia": "qui",
+      "horario": "19:00",
+      "pilar": "Carrossel",
+      "formato": "carrossel",
+      "status": "aguardando_aprovacao",
+      "headline": "Empresa preparada vs. empresa no susto — a diferença não é tamanho",
+      "subtitulo": "A diferença é clareza.\n\nNão é sobre ter um time de RH grande. Não é sobre setor. Não é sobre quanto tempo a empresa tem de mercado.\n\nÉ sobre entender o que mudou e organizar a gestão de pessoas de forma estratégica.\n\nArrasta para ver o que diferencia as duas ⟶\n\nComenta NR1 👇 que eu te envio o guia no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "slides": [],
+      "slides_copy": [
+        {
+          "slide": 1,
+          "tipo": "capa",
+          "texto": "Empresa preparada\nvs.\nEmpresa no susto",
+          "nota_visual": "Layout dividido — lado âmbar (preparada), lado cinza (no susto)"
+        },
+        {
+          "slide": 2,
+          "tipo": "conteudo",
+          "texto": "❌ Empresa no susto\n— Ficou esperando mais clareza das autoridades\n— Tomou decisões baseadas em rumores\n— Não sabe o que exatamente precisa organizar\n— Paralisa ou reage de última hora",
+          "nota_visual": "Fundo branco, coluna com borda cinza, ícones X"
+        },
+        {
+          "slide": 3,
+          "tipo": "conteudo",
+          "texto": "✅ Empresa preparada\n— Entendeu o que a norma realmente exige\n— Organizou registros com foco em gestão de pessoas\n— Sabe a diferença entre obrigação e boa prática\n— Toma decisões informadas, não no susto",
+          "nota_visual": "Fundo branco, coluna com borda âmbar, ícones check"
+        },
+        {
+          "slide": 4,
+          "tipo": "conteudo",
+          "texto": "A norma não avalia tamanho.\nAvalia clareza.\n\nQuem entende o que mudou — age melhor.\nQuem não entende — espera pelo problema.",
+          "nota_visual": "Fundo navy #1B2A5E, texto branco bold"
+        },
+        {
+          "slide": 5,
+          "tipo": "cta",
+          "texto": "Comenta NR1 👇\nque eu te envio o guia no direct.\nDe graça.",
+          "nota_visual": "Fundo navy #1B2A5E + botão âmbar + badge eBook R$47"
+        }
+      ],
+      "nota": "CARROSSEL — 5 slides, ângulo clareza vs. confusão"
+    },
+    {
+      "id": 6,
+      "dia": "sex",
+      "horario": "18:00",
+      "pilar": "Pergunta",
+      "formato": "post_simples",
+      "status": "aguardando_aprovacao",
+      "headline": "Você sabe o que a NR-1 realmente exige da sua empresa?",
+      "subtitulo": "Responde honestamente nos comentários 👇\n\n✅ SIM, já entendemos e estamos organizados\n🔄 ESTAMOS ESTUDANDO o tema\n🤔 NEM SEI POR ONDE COMEÇAR\n❓ OUÇO COISAS CONTRADITÓRIAS, não sei em quem confiar\n\nNão tem resposta certa ou errada — mas existe uma resposta honesta.\n\nE é só a partir dela que você consegue se preparar de forma estratégica.\n\nComenta NR1 👇 que eu te envio o guia no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "nota_visual": "Fundo navy #1B2A5E, texto branco, pergunta em destaque âmbar, 4 opções com emojis"
+    },
+    {
+      "id": 7,
+      "dia": "sab",
+      "horario": "10:00",
+      "pilar": "Carrossel",
+      "formato": "carrossel",
+      "status": "aguardando_aprovacao",
+      "headline": "O que organizar na sua empresa em relação à NR-1 — por categoria 📌",
+      "subtitulo": "Não é uma lista de compliance técnico.\n\nÉ um guia prático do que ter organizado — em linguagem de gestão, não de laudo.\n\nSalva esse post e arrasta para conferir ⟶\n\nComenta NR1 👇 que eu te envio o guia no direct. De graça.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "slides": [],
+      "slides_copy": [
+        {
+          "slide": 1,
+          "tipo": "capa",
+          "texto": "O que organizar em relação à NR-1 — por categoria",
+          "nota_visual": "Fundo navy #1B2A5E + texto branco bold + ícone 📌"
+        },
+        {
+          "slide": 2,
+          "tipo": "conteudo",
+          "texto": "📄 Gestão de riscos psicossociais\nIdentificação e registro dos fatores relevantes para a empresa.\nDocumentado e revisado periodicamente.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número '01', ícone pessoas"
+        },
+        {
+          "slide": 3,
+          "tipo": "conteudo",
+          "texto": "📋 Registros de treinamentos\nLista de presença com data, tema e assinatura.\nNão precisa ser elaborado — precisa existir.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número '02', ícone lista"
+        },
+        {
+          "slide": 4,
+          "tipo": "conteudo",
+          "texto": "📨 Comunicações internas\nE-mails, comunicados, registros de reuniões relevantes.\nArquivados e acessíveis.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número '03', ícone email"
+        },
+        {
+          "slide": 5,
+          "tipo": "conteudo",
+          "texto": "🔧 Evidências de ação\nQuando identificou um fator de risco, o que fez?\nQualquer ação registrada já é melhor do que nenhum registro.",
+          "nota_visual": "Fundo branco, barra lateral âmbar, número '04', ícone ferramenta"
+        },
+        {
+          "slide": 6,
+          "tipo": "cta",
+          "texto": "Comenta NR1 👇\nque eu te envio o guia completo.\nDe graça.",
+          "nota_visual": "Fundo navy #1B2A5E + botão âmbar #F5A623 + badge eBook R$47"
+        }
+      ],
+      "nota": "CARROSSEL — 6 slides, linguagem de gestão (não fiscal)"
+    },
+    {
+      "id": 8,
+      "dia": "sab",
+      "horario": "18:00",
+      "pilar": "Autoridade",
+      "formato": "post_simples",
+      "status": "aguardando_aprovacao",
+      "headline": "Por que um consultor empresarial criou um guia sobre NR-1.",
+      "subtitulo": "Sou Guilherme Avelar.\n\nGraduado em Gestão de Recursos Humanos.\nPós-graduado em Gestão Empresarial e Planejamento Tributário.\nEspecialista em desenvolvimento humano, liderança e gestão de pessoas.\nConsultor empresarial — apoiando empresas na estruturação de equipes e melhoria da performance organizacional há anos.\n\nQuando a discussão sobre a NR-1 ganhou força, analisei com cuidado o que estava acontecendo.\n\nE o que encontrei foi um problema diferente do que a maioria estava vendendo.\n\nO problema não era a norma. Era a confusão.\n\nEmpresas tomando decisões baseadas em informações contraditórias, sem entender o que realmente mudou.\n\nEntão criei o Empresa Protegida NR-1.\n\nCom visão de gestão empresarial e embasamento técnico. Para traduzir um tema complexo para a realidade prática de quem administra um negócio.\n\nNão para criar alarme. Para dar clareza.\n\nComenta NR1 👇 que eu te envio no direct. De graça.\n\n---\n\nNa semana que vem: quem já começou a se preparar — e o que eles fizeram de diferente.",
+      "imagem": "",
+      "imagem_url_publica": "",
+      "nota_visual": "Fundo navy #1B2A5E, foto profissional do Guilherme, credenciais em destaque, identidade de autoridade consolidada"
+    }
+  ]
+}
